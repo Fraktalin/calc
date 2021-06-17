@@ -1,0 +1,447 @@
+[
+  [
+    {
+      "title": "Стандарт",
+      "image": "./images/glass/classic.png"
+    },
+    {
+      "title": "Голубой рефлект",
+      "image": "./images/glass/blueRef.png"
+    },
+    {
+      "title": "Бронзовый рефлект",
+      "image": "./images/glass/bronzeRef.png"
+    },
+    {
+      "title": "Золотой рефлект",
+      "image": "./images/glass/goldenRef.png"
+    },
+    {
+      "title": "Серебрянный рефлект",
+      "image": "./images/glass/silverRef.png"
+    },
+    {
+      "title": "Белая дельта",
+      "image": "./images/glass/whiteDelta.png"
+    },
+    {
+      "title": "Коричневая дельта",
+      "image": "./images/glass/brownDelta.png"
+    },
+    {
+      "title": "Крезет",
+      "image": "./images/glass/crozet.png"
+    },
+    {
+      "title": "Бронзовый Сатин",
+      "image": "./images/glass/bronzeSatin.png"
+    },
+    {
+      "title": "Белый Сатин",
+      "image": "./images/glass/whiteSatin.png"
+    }
+  ],
+  [
+    {
+      "title": "Стандарт",
+      "image": "./images/frames/classicS.png"
+    },
+    {
+      "title": "Тимбер",
+      "image": "./images/frames/TimberS.png"
+    },
+    {
+      "title": "Античная сосна",
+      "image": "./images/frames/antiquePineS.png"
+    },
+    {
+      "title": "Веницианский дуб",
+      "image": "./images/frames/venetianOakS.png"
+    },
+    {
+      "title": "Антрацит",
+      "image": "./images/frames/anthraciteS.png"
+    },
+    {
+      "title": "Черный",
+      "image": "./images/frames/blackS.png"
+    },
+    {
+      "title": "Синий",
+      "image": "./images/frames/blueS.png"
+    },
+    {
+      "title": "Дуб Морёный",
+      "image": "./images/frames/bogOakS.png"
+    },
+    {
+      "title": "Шоколадно коричневый",
+      "image": "./images/frames/chocolateBrownS.png"
+    },
+    {
+      "title": "Темный дуб",
+      "image": "./images/frames/darkOakS.png"
+    },
+    {
+      "title": "Темная вишня",
+      "image": "./images/frames/darkCherryS.png"
+    },
+    {
+      "title": "Золотой дуб",
+      "image": "./images/frames/goldenOakS.png"
+    },
+    {
+      "title": "Серый",
+      "image": "./images/frames/grayS.png"
+    },
+    {
+      "title": "Светлый дуб",
+      "image": "./images/frames/lightOakS.png"
+    },
+    {
+      "title": "Махогон",
+      "image": "./images/frames/mahoganyS.png"
+    },
+    {
+      "title": "Зелёный мох",
+      "image": "./images/frames/mossGreenS.png"
+    },
+    {
+      "title": "Горная сосна",
+      "image": "./images/frames/mountainPineS.png"
+    },
+    {
+      "title": "Орех",
+      "image": "./images/frames/nutS.png"
+    },
+    {
+      "title": "Сосна",
+      "image": "./images/frames/pineS.png"
+    },
+    {
+      "title": "Красный",
+      "image": "./images/frames/redS.png"
+    },
+    {
+      "title": "Антрацит песчанный",
+      "image": "./images/frames/sandyAnthraciteS.png"
+    },
+    {
+      "title": "Сиена",
+      "image": "./images/frames/siennaS.png"
+    },
+    {
+      "title": "Серебро",
+      "image": "./images/frames/silverS.png"
+    },
+    {
+      "title": "Дуб сонома",
+      "image": "./images/frames/sonomaOakS.png"
+    }
+  ],
+  [
+    {
+      "title": "Стандарт",
+      "image": "./images/frames/classicD.png"
+    },
+    {
+      "title": "Тимбер",
+      "image": "./images/frames/TimberD.png"
+    },
+    {
+      "title": "Античная сосна",
+      "image": "./images/frames/antiquePineD.png"
+    },
+    {
+      "title": "Веницианский дуб",
+      "image": "./images/frames/venetianOakD.png"
+    },
+    {
+      "title": "Антрацит",
+      "image": "./images/frames/anthraciteD.png"
+    },
+    {
+      "title": "Черный",
+      "image": "./images/frames/blackD.png"
+    },
+    {
+      "title": "Синий",
+      "image": "./images/frames/blueD.png"
+    },
+    {
+      "title": "Дуб Морёный",
+      "image": "./images/frames/bogOakD.png"
+    },
+    {
+      "title": "Шоколадно коричневый",
+      "image": "./images/frames/chocolateBrownD.png"
+    },
+    {
+      "title": "Темный дуб",
+      "image": "./images/frames/darkOakD.png"
+    },
+    {
+      "title": "Темная вишня",
+      "image": "./images/frames/darkCherryD.png"
+    },
+    {
+      "title": "Золотой дуб",
+      "image": "./images/frames/goldenOakD.png"
+    },
+    {
+      "title": "Серый",
+      "image": "./images/frames/grayD.png"
+    },
+    {
+      "title": "Светлый дуб",
+      "image": "./images/frames/lightOakD.png"
+    },
+    {
+      "title": "Махогон",
+      "image": "./images/frames/mahoganyD.png"
+    },
+    {
+      "title": "Зелёный мох",
+      "image": "./images/frames/mossGreenD.png"
+    },
+    {
+      "title": "Горная сосна",
+      "image": "./images/frames/mountainPineD.png"
+    },
+    {
+      "title": "Орех",
+      "image": "./images/frames/nutD.png"
+    },
+    {
+      "title": "Сосна",
+      "image": "./images/frames/pineD.png"
+    },
+    {
+      "title": "Красный",
+      "image": "./images/frames/redD.png"
+    },
+    {
+      "title": "Антрацит песчанный",
+      "image": "./images/frames/sandyAnthraciteD.png"
+    },
+    {
+      "title": "Сиена",
+      "image": "./images/frames/siennaD.png"
+    },
+    {
+      "title": "Серебро",
+      "image": "./images/frames/silverD.png"
+    },
+    {
+      "title": "Дуб сонома",
+      "image": "./images/frames/sonomaOakD.png"
+    }
+  ],
+  [
+    {
+      "title": "Стандарт",
+      "image": "./images/frames/classicT.png"
+    },
+    {
+      "title": "Тимбер",
+      "image": "./images/frames/TimberT.png"
+    },
+    {
+      "title": "Античная сосна",
+      "image": "./images/frames/antiquePineT.png"
+    },
+    {
+      "title": "Веницианский дуб",
+      "image": "./images/frames/venetianOakT.png"
+    },
+    {
+      "title": "Антрацит",
+      "image": "./images/frames/anthraciteT.png"
+    },
+    {
+      "title": "Черный",
+      "image": "./images/frames/blackT.png"
+    },
+    {
+      "title": "Синий",
+      "image": "./images/frames/blueT.png"
+    },
+    {
+      "title": "Дуб Морёный",
+      "image": "./images/frames/bogOakT.png"
+    },
+    {
+      "title": "Шоколадно коричневый",
+      "image": "./images/frames/chocolateBrownT.png"
+    },
+    {
+      "title": "Темный дуб",
+      "image": "./images/frames/darkOakT.png"
+    },
+    {
+      "title": "Темная вишня",
+      "image": "./images/frames/darkCherryT.png"
+    },
+    {
+      "title": "Золотой дуб",
+      "image": "./images/frames/goldenOakT.png"
+    },
+    {
+      "title": "Серый",
+      "image": "./images/frames/grayT.png"
+    },
+    {
+      "title": "Светлый дуб",
+      "image": "./images/frames/lightOakT.png"
+    },
+    {
+      "title": "Махогон",
+      "image": "./images/frames/mahoganyT.png"
+    },
+    {
+      "title": "Зелёный мох",
+      "image": "./images/frames/mossGreenT.png"
+    },
+    {
+      "title": "Горная сосна",
+      "image": "./images/frames/mountainPineT.png"
+    },
+    {
+      "title": "Орех",
+      "image": "./images/frames/nutT.png"
+    },
+    {
+      "title": "Сосна",
+      "image": "./images/frames/pineT.png"
+    },
+    {
+      "title": "Красный",
+      "image": "./images/frames/redT.png"
+    },
+    {
+      "title": "Антрацит песчанный",
+      "image": "./images/frames/sandyAnthraciteT.png"
+    },
+    {
+      "title": "Сиена",
+      "image": "./images/frames/siennaT.png"
+    },
+    {
+      "title": "Серебро",
+      "image": "./images/frames/silverT.png"
+    },
+    {
+      "title": "Дуб сонома",
+      "image": "./images/frames/sonomaOakT.png"
+    }
+  ],
+  [
+    {
+      "title": "Стандарт",
+      "image": "./images/frames/classicQ.png"
+    },
+    {
+      "title": "Тимбер",
+      "image": "./images/frames/TimberQ.png"
+    },
+    {
+      "title": "Античная сосна",
+      "image": "./images/frames/antiquePineQ.png"
+    },
+    {
+      "title": "Антрацит",
+      "image": "./images/frames/anthraciteQ.png"
+    },
+    {
+      "title": "Черный",
+      "image": "./images/frames/blackQ.png"
+    },
+    {
+      "title": "Синий",
+      "image": "./images/frames/blueQ.png"
+    },
+    {
+      "title": "Морёный дуб",
+      "image": "./images/frames/bogOakQ.png"
+    },
+    {
+      "title": "Шоколадно коричневый",
+      "image": "./images/frames/chocolateBrownQ.png"
+    },
+    {
+      "title": "Темная вишня",
+      "image": "./images/frames/darkCherryQ.png"
+    },
+    {
+      "title": "Темный дуб",
+      "image": "./images/frames/darkOakQ.png"
+    },
+    {
+      "title": "Серый",
+      "image": "./images/frames/grayQ.png"
+    },
+    {
+      "title": "Светлый дуб",
+      "image": "./images/frames/lightOakQ.png"
+    },
+    {
+      "title": "Махогон",
+      "image": "./images/frames/mahoganyQ.png"
+    },
+    {
+      "title": "Зеленый мох",
+      "image": "./images/frames/mossGreenQ.png"
+    },
+    {
+      "title": "Горная сосна",
+      "image": "./images/frames/mountainPineQ.png"
+    },
+    {
+      "title": "Натуральный дуб",
+      "image": "./images/frames/naturalOakQ.png"
+    },
+    {
+      "title": "Орех",
+      "image": "./images/frames/nutQ.png"
+    },
+    {
+      "title": "Сосна",
+      "image": "./images/frames/pineQ.png"
+    },
+    {
+      "title": "Красный",
+      "image": "./images/frames/redQ.png"
+    },
+    {
+      "title": "Антрацит песчанный",
+      "image": "./images/frames/sandyAnthraciteQ.png"
+    },
+    {
+      "title": "Сиена",
+      "image": "./images/frames/siennaQ.png"
+    },
+    {
+      "title": "Серебро",
+      "image": "./images/frames/silverQ.png"
+    },
+    {
+      "title": "Дуб сонома",
+      "image": "./images/frames/sonomaOakQ.png"
+    },
+    {
+      "title": "Веницианский дуб",
+      "image": "./images/frames/venetianOakQ.png"
+    }
+  ],
+  [
+    {
+      "title": "Обычная ручка"
+    },
+    {
+      "title": "Противовзломная"
+    },
+    {
+      "title": "Steko BioTouch"
+    }
+  ]
+]

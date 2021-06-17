@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <meta name="description" content="Калькулятор Окон" />
+    <meta name="theme-color" content="#000000" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <a href="#" aria-label="main logo">
+            <img
+              class="logo"
+              src="./images/logo.png"
+              alt="Логотип Стеко"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="col-3">
+          <select class="main-select" name="select" required="">
+            <option value="">Профиль</option>
+            <option value="8000">Steko IDEAL 8000 Round Line</option>
+            <option value="7000">Steko IDEAL 7000</option>
+            <option value="4000">Steko IDEAL 4000</option>
+            <option value="2000">Steko IDEAL 2000</option>
+            <option value="V90">Steko V90</option>
+            <option value="S700">Steko S700</option>
+            <option value="S500">Steko S500</option>
+            <option value="S400">Steko S400</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <select class="main-select" name="select" required="">
+            <option value="">Стеклопакет</option>
+            <option value="1">Однокамерный</option>
+            <option value="2">Двухкамерный</option>
+            <option value="1+">1-кам Энергосберегающие</option>
+            <option value="2+">2-кам Энергосберегающие</option>
+            <option value="sndw">Сендвич панели</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <select class="main-select" name="select" required="">
+            <option value="">Фурнитура</option>
+            <option value="Steko">Steko+</option>
+            <option value="ELITE">Axor ELITE +</option>
+            <option value="Komfort">Axor Komfort Line k-3</option>
+            <option value="Maco">Maco VZ</option>
+          </select>
+        </div>
+        <div class="col-1">
+          <div id="toggles">
+            <input
+              type="checkbox"
+              name="checkbox1"
+              id="checkbox1"
+              class="ios-toggle"
+              checked
+              aria-label="выбор вида"
+            />
+            <label
+              for="checkbox1"
+              class="checkbox-label"
+              data-off=""
+              data-on=""
+            ></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row choice-window-block">
+        <div class="col-xl-2 col-lg-12">
+          <div class="window-wrap">
+            <div data-mode="1" class="window">
+              <img
+                data-active="./images/window-single.svg"
+                src="./images/window-singleActive.svg"
+                alt="Окно одностворчетое"
+                loading="lazy"
+              />
+            </div>
+            <div data-mode="2" class="window">
+              <img
+                data-active="./images/window-doubleActive.svg"
+                src="./images/window-double.svg"
+                alt="Окно двухстворчетое"
+                loading="lazy"
+              />
+            </div>
+            <div data-mode="3" class="window">
+              <img
+                data-active="./images/window-tripleActive.svg"
+                src="./images/window-triple.svg"
+                alt="Окно Трехстворчетое"
+                loading="lazy"
+              />
+            </div>
+            <div data-mode="4" class="window">
+              <img
+                data-active="./images/window-triplePActive.svg"
+                src="./images/window-tripleP.svg"
+                alt="Окно Четырестворчетое"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-8">
+          <h2 class="main-title" id="type-window">Одностворчетое</h2>
+          <div class="row type-window-wrap">
+            <div class="col-12">
+              <select class="main-select" name="select" required="">
+                <option value="">Поворотно-откидное</option>
+                <option value="Steko">Поворотное</option>
+                <option value="ELITE">Откидное</option>
+                <option value="Komfort">Глухое</option>
+              </select>
+            </div>
+          </div>
+          <div class="frame-glass-wrap">
+            <div class="window-frame">
+              <div class="window-glass"></div>
+            </div>
+            <div class="border-bot">
+              <img
+                class="arrow-left"
+                src="./images/arrow.svg"
+                alt="Стрелка влево"
+                loading="lazy"
+              />
+              <div class="block-width">Ширина, мм</div>
+              <img
+                class="arrow-right"
+                src="./images/arrow.svg"
+                alt="Стрелка вправо"
+                loading="lazy"
+              />
+            </div>
+            <div class="border-right">
+              <img
+                class="arrow-top"
+                src="./images/arrow.svg"
+                alt="Стрелка вверх"
+                loading="lazy"
+              />
+              <div class="block-height">
+                <span class="reverse-text">Высота, мм</span>
+              </div>
+              <img
+                class="arrow-bot"
+                src="./images/arrow.svg"
+                alt="Стрелка вниз"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4">
+          <div class="row">
+            <div class="info-wrap">
+              <h3 class="second-title hlp-title d-inline">ШИРИНА И ВЫСОТА</h3>
+              <img
+                src="./images/info.svg"
+                class="info"
+                alt="Информация"
+                loading="lazy"
+              />
+              <div class="warning-block hidden">
+                Внимание! Значение высоты и ширины ограничены Ширина от 500, мм
+                до 2700, мм Высота от 500, мм до 1600, мм
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <input
+                    id="widthInp"
+                    class="main-input"
+                    type="text"
+                    placeholder="Ширина, мм"
+                  />
+                </div>
+                <div class="col-6">
+                  <input
+                    id="heightInp"
+                    class="main-input"
+                    type="text"
+                    placeholder="Высота, мм"
+                  />
+                </div>
+              </div>
+              <div class="row second-title-wrap">
+                <div class="col-10">
+                  <h3 class="second-title">ЛАМИНАЦИЯ</h3>
+                </div>
+                <div class="col-2">
+                  <button class="refresh-button" aria-label="Refresh button">
+                    <img
+                      class="refresh-button-image"
+                      src="./images/icon/refresh.svg"
+                      alt="refresh button"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="choice-options" data-select="lam">
+                    <p><i data-arrow="prev" class="arrow left"></i></p>
+                    <div class="choice-wrap choice-wrap-lam"></div>
+                    <p><i data-arrow="next" class="arrow right"></i></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row second-title-wrap">
+                <div class="col-10">
+                  <h3 class="second-title">СТЕКЛО</h3>
+                </div>
+                <div class="col-2">
+                  <button class="refresh-button" aria-label="Refresh button">
+                    <img
+                      class="refresh-button-image"
+                      src="./images/icon/refresh.svg"
+                      alt="refresh button"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="choice-options" data-select="win">
+                    <p><i data-arrow="prev" class="arrow left"></i></p>
+                    <div class="choice-wrap choice-wrap-glass"></div>
+                    <p><i data-arrow="next" class="arrow right"></i></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row second-title-wrap">
+                <div class="col-10">
+                  <h3 class="second-title">РУЧКА</h3>
+                </div>
+                <div class="col-2">
+                  <button class="refresh-button" aria-label="Refresh button">
+                    <img
+                      class="refresh-button-image"
+                      src="./images/icon/refresh.svg"
+                      alt="refresh button"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="choice-options" data-select="cab">
+                    <p><i data-arrow="prev" class="arrow left"></i></p>
+                    <div class="choice-wrap choice-wrap-cab"></div>
+                    <p><i data-arrow="next" class="arrow right"></i></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row second-title-wrap">
+                <div class="col-10">
+                  <h3 class="second-title extend-title">
+                    Добавить доп. комплектацию
+                  </h3>
+                </div>
+                <div class="col-2">
+                  <button
+                    class="refresh-button extend-button"
+                    aria-label="Refresh button"
+                  >
+                    <img
+                      class="refresh-button-image"
+                      src="./images/icon/refresh.svg"
+                      alt="refresh button"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="extend-elems">
+                    <span class="extend-item">Детский замок</span>
+                    <span class="extend-item">Подоконик</span>
+                    <span class="extend-item">Отлив</span>
+                    <span class="extend-item">Сетка</span>
+                    <span class="extend-item">Откосы</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 bottom-block">
+                  <div class="result-wrap">
+                    Общая стоимость:
+                    <span class="text-result" id="result"></span>
+                  </div>
+                  <button class="order-button">
+                    <img
+                      class="cart-image"
+                      src="./images/cart.svg"
+                      alt="Корзина"
+                      loading="lazy"
+                    />
+                    ЗАКАЗАТЬ
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="row">
+          <span class="footer-text"
+            >Данная цена примерная и может отличаться от действительной так как
+            зависит от многих параметров. Для более детально расчета и
+            информации по скидке рекомендуем нажать "Заказать" для связи с
+            менеджером.
+          </span>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script/index.js"></script>
+  </body>
+</html>
