@@ -34,14 +34,17 @@ img {
   margin-bottom: 20px;
   font-size: 12px;
   line-height: 16px;
-  width: 60%;
+  width: 100%;
   height: 16px;
   border-radius: 18px;
-  background: #f8f8f8;
+  background: #c9a7a700;
   cursor: pointer;
+  margin-left: 24px;
+  border: 2px solid white;
 }
 
 .checkbox-label:before {
+  margin-left: auto;
   transition: 0.5s;
   content: "";
   display: block;
@@ -55,11 +58,12 @@ img {
   top: 0px;
   left: 0px;
   right: auto;
-  background: white;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd00;
 }
 
 .checkbox-label:after {
+  margin-left: 24px;
   content: attr(data-off);
   display: block;
   position: absolute;
@@ -67,13 +71,14 @@ img {
   top: 0;
   width: 0;
   text-align: right;
-  color: #bfbfbf;
+  color: #bfbfbf00;
   white-space: nowrap;
 }
 
 .ios-toggle:checked + .checkbox-label {
-  box-shadow: inset 0 0 0 20px rgba(175, 175, 175),
-    0 0 0 2px rgba(175, 175, 175);
+  margin-left: 24px;
+  box-shadow: inset 0 0 0 20px rgba(175, 175, 175, 0),
+    0 0 0 2px rgba(175, 175, 175, 0);
 }
 
 .ios-toggle:checked + .checkbox-label:before {
@@ -90,16 +95,16 @@ img {
 
 #checkbox1 + .checkbox-label {
   transition: 0.5s;
-  box-shadow: inset 0 0 0 0px rgb(175, 175, 175), 0 0 0 2px #dddddd;
+  box-shadow: inset 0 0 0 0px rgba(175, 175, 175, 0), 0 0 0 2px #dddddd00;
 }
 
 #checkbox1:checked + .checkbox-label {
-  box-shadow: inset 0 0 0 18px rgba(175, 175, 175),
-    0 0 0 2px rgba(175, 175, 175);
+  box-shadow: inset 0 0 0 18px rgba(175, 175, 175, 0),
+    0 0 0 2px rgba(175, 175, 175, 0);
 }
 
 #checkbox1:checked + .checkbox-label:after {
-  color: rgba(175, 175, 175);
+  color: rgba(175, 175, 175, 0);
 }
 body {
   max-height: 100vh;
@@ -128,6 +133,9 @@ select {
   transition: 0.3s;
   position: relative;
 }
+.window-wrap {
+  padding-top: 20px;
+}
 .frame-glass-wrap-fixed {
   transition: 0.3s;
   z-index: 3;
@@ -145,6 +153,7 @@ select {
 }
 
 .window {
+  margin: 20px;
   transition: 0.5s;
   margin-right: auto;
   cursor: pointer;
@@ -235,16 +244,16 @@ select {
   z-index: 2;
   position: absolute;
   left: 0;
-  top: -6px;
-  width: 10px;
+  top: -4px;
+  width: 7px;
 }
 .arrow-right {
   max-width: none;
   z-index: 2;
-  top: -6px;
+  top: -4px;
   position: absolute;
   right: 0;
-  width: 10px;
+  width: 7px;
   transform: rotate(180deg);
 }
 .border-right {
@@ -254,7 +263,7 @@ select {
   position: absolute;
   padding: 0;
   width: 1px;
-  height: 500px;
+  height: 536px;
   background: white;
 }
 .block-width {
@@ -285,9 +294,9 @@ select {
   max-width: none;
   z-index: 2;
   position: absolute;
-  top: -10px;
-  left: -4px;
-  width: 10px;
+  top: -6px;
+  left: -3px;
+  width: 7px;
   transform: rotate(90deg);
 }
 .reverse-text {
@@ -301,13 +310,13 @@ select {
   max-width: none;
   z-index: 2;
   position: absolute;
-  bottom: -10px;
-  left: -4px;
-  width: 10px;
+  bottom: -8px;
+  left: -3px;
+  width: 7px;
   transform: rotate(-90deg);
 }
 .choice-window-block {
-  padding-top: 40px;
+  padding-top: 16px;
 }
 .main-title {
   margin: 0;
@@ -319,11 +328,12 @@ select {
   padding-bottom: 24px;
 }
 .second-title {
+  margin-bottom: 0;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 32px;
-  padding-top: 24px;
+  padding-top: 40px;
   padding-bottom: 24px;
 }
 .main-input {
@@ -337,8 +347,6 @@ select {
   display: flex;
   align-items: center;
   position: relative;
-
-  padding-bottom: 16px;
 }
 .main-input::placeholder {
   color: white;
@@ -376,7 +384,9 @@ i {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-
+.custom-col-frame {
+  padding-right: 40px;
+}
 .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
@@ -392,6 +402,7 @@ i {
   padding: 0;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 .d-inline {
   margin: 0;
@@ -400,6 +411,7 @@ i {
   display: inline;
 }
 .choice-text {
+  margin-bottom: 4px;
   text-align: center;
   width: 100%;
 }
@@ -408,7 +420,8 @@ i {
 }
 .choice-wrap {
   text-align: center;
-  width: 100%;
+  width: 85%;
+  padding-bottom: 4px;
   border-bottom: 2px solid white;
 }
 .info {
@@ -462,10 +475,11 @@ i {
   font-weight: normal;
   font-size: 18px;
   line-height: 28px;
+  margin-bottom: 24px;
   text-align: center;
   white-space: nowrap;
-  margin-bottom: 24px;
   padding: 0 16px;
+  padding-left: 32px;
 }
 .text-result {
   padding-left: 8px;
@@ -475,17 +489,21 @@ i {
   line-height: 32px;
 }
 .refresh-button {
-  background: #000;
+  background: transparent;
   border: 2px solid #ffffff;
   width: 32px;
   height: 32px;
-  padding: 2px;
+  margin-top: 16px;
+  display: block;
+  margin-left: auto;
 }
 .refresh-button-image {
+  padding-bottom: 3px;
   width: 16px;
   height: 16px;
 }
 .extend-title {
+  text-transform: uppercase;
   padding-bottom: 24px;
   margin-bottom: 0;
 }
@@ -509,17 +527,19 @@ i {
   color: #000;
 }
 .extend-button {
-  margin-left: 5px;
+  margin-left: auto;
 }
 .line {
   height: 2px;
   background: white;
 }
 .bottom-block {
+  padding-top: 16px;
   display: flex;
   justify-content: space-between;
 }
 .footer-text {
+  padding-top: 8px;
   text-align: center;
   font-weight: bold;
   font-size: 11px;
@@ -534,6 +554,14 @@ i {
   height: 72px;
   color: #000;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-button:hover {
+  box-shadow: 0px 0px 15px 0px #ffffff;
 }
 .cart-image {
   padding-bottom: 8px;
