@@ -27,6 +27,9 @@ img {
 .logo {
   width: 90px;
 }
+.logo-link {
+  width: 100%;
+}
 .checkbox-label {
   display: block;
   position: relative;
@@ -559,7 +562,9 @@ i {
   align-items: center;
   justify-content: center;
 }
-
+.small-toggle {
+  display: none;
+}
 .order-button:hover {
   box-shadow: 0px 0px 15px 0px #ffffff;
 }
@@ -633,6 +638,18 @@ i {
 }
 
 @media screen and (max-width: 768px) {
+  .big-toggle {
+    display: none;
+  }
+  .top-section-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .small-toggle {
+    display: block;
+    margin-right: 30px;
+  }
   .window-frame {
     max-width: 460px;
     max-height: 460px;
@@ -690,60 +707,39 @@ i {
     width: 250px;
     height: 160px;
   }
-  .ios-toggle:checked + .checkbox-label:before {
-    left: 0;
-    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
-  }
-  .ios-toggle:checked + .checkbox-label:before {
-    top: calc(100% - 14px);
-    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
-  }
   .window-glass-quad {
     width: 220px;
     height: 209px;
-  }
-  .checkbox-label:before {
-    height: 16px;
-    width: 16px;
   }
   .border-bot {
     width: 80%;
     right: 0;
   }
-  .checkbox-label {
-    padding: 8px;
-    height: 40px;
-  }
   .border-right {
     right: 45px;
     height: 310px;
-  }
-  #toggles {
-    width: 0px;
-    text-align: center;
   }
   .main-title {
     font-size: 28px;
   }
 }
 @media screen and (max-width: 400px) {
+  .frame-glass-wrap-fixed {
+    width: 108%;
+  }
   .frame-glass-wrap {
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .border-right {
-    right: 25px;
+    right: 2px;
     height: 310px;
   }
   .border-bot {
-    width: 90%;
-    left: 2%;
+    width: 80%;
+    left: 10%;
   }
-  .checkbox-label {
-    padding: 7px;
-    width: 30%;
-  }
-  .checkbox-label:before {
-    height: 14px;
-    width: 14px;
+  .window {
+    width: 64px;
+    height: 64px;
   }
 }

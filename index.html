@@ -23,17 +23,37 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-2">
-          <a href="#" aria-label="main logo">
-            <img
-              class="logo"
-              src="./images/logo.png"
-              alt="Логотип Стеко"
-              loading="lazy"
-            />
-          </a>
+        <div class="col-sm-12 col-md-2 small-logo">
+          <div class="top-section-wrap">
+            <a href="#" aria-label="main logo" class="logo-link">
+              <img
+                class="logo"
+                src="./images/logo.png"
+                alt="Логотип Стеко"
+                loading="lazy"
+              />
+            </a>
+            <div class="small-toggle">
+              <div id="toggles">
+                <input
+                  type="checkbox"
+                  name="checkbox1"
+                  id="checkbox1"
+                  class="ios-toggle"
+                  checked
+                  aria-label="выбор вида"
+                />
+                <label
+                  for="checkbox1"
+                  class="checkbox-label"
+                  data-off=""
+                  data-on=""
+                ></label>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3">
           <select class="main-select" name="select" required="">
             <option value="">Профиль</option>
             <option value="8000">Steko IDEAL 8000 Round Line</option>
@@ -46,7 +66,7 @@
             <option value="S400">Steko S400</option>
           </select>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3">
           <select class="main-select" name="select" required="">
             <option value="">Стеклопакет</option>
             <option value="1">Однокамерный</option>
@@ -56,7 +76,7 @@
             <option value="sndw">Сендвич панели</option>
           </select>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3">
           <select class="main-select" name="select" required="">
             <option value="">Фурнитура</option>
             <option value="Steko">Steko+</option>
@@ -65,18 +85,18 @@
             <option value="Maco">Maco VZ</option>
           </select>
         </div>
-        <div class="col-1">
+        <div class="col-sm-0 col-md-1 big-toggle">
           <div id="toggles">
             <input
               type="checkbox"
-              name="checkbox1"
-              id="checkbox1"
+              name="checkbox2"
+              id="checkbox2"
               class="ios-toggle"
               checked
               aria-label="выбор вида"
             />
             <label
-              for="checkbox1"
+              for="checkbox2"
               class="checkbox-label"
               data-off=""
               data-on=""
