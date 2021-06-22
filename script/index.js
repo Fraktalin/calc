@@ -21,6 +21,8 @@ const curWid = document.querySelector(".block-width");
 const curHei = document.querySelector(".reverse-text");
 const widthInp = document.querySelector("#widthInp");
 const heightInp = document.querySelector("#heightInp");
+const frameGlassWrap = document.querySelector(".frame-glass-wrap");
+const infoWrap = document.querySelector(".info-wrap");
 let currentWindow = 1;
 let dataArray = [];
 for (const i of inputs) {
@@ -53,7 +55,7 @@ for (const i of extendItems) {
   i.addEventListener("click", choiceExtend);
   i.addEventListener("click", showSum);
 }
-
+document.addEventListener("scroll", fixedBlock);
 function sendRequest(url) {
   return fetch(url)
     .then((response) => {
@@ -71,6 +73,17 @@ function choiceExtend() {
 function refreshItems() {
   for (const i of extendItems) {
     i.classList.remove("extend-item--active");
+  }
+}
+function fixedBlock() {
+  if (document.documentElement.getBoundingClientRect().top < -400) {
+    frameGlassWrap.classList.add("frame-glass-wrap-fixed");
+    infoWrap.setAttribute("style", "margin-top:420px");
+    blockFrame.classList.add("window-frame-fixed");
+  } else {
+    frameGlassWrap.classList.remove("frame-glass-wrap-fixed");
+    infoWrap.setAttribute("style", "margin-top:24px");
+    blockFrame.classList.remove("window-frame-fixed");
   }
 }
 function setParam() {
@@ -131,9 +144,9 @@ function refreshData(curr = 1) {
       typeWindowChange.innerHTML += newInput;
     }
   }
-  choiceLam.innerHTML = `<span class="choice-text">${dataArray[curr][0].title}</span>`;
-  choiceGlass.innerHTML = `<span class="choice-text">${dataArray[0][0].title}</span>`;
-  choiceCab.innerHTML = `<span class="choice-text">${dataArray[5][0].title}</span>`;
+  choiceLam.innerHTML = `<span class="choice-text animation--active">${dataArray[curr][0].title}</span>`;
+  choiceGlass.innerHTML = `<span class="choice-text animation--active">${dataArray[0][0].title}</span>`;
+  choiceCab.innerHTML = `<span class="choice-text animation--active">${dataArray[5][0].title}</span>`;
   blockFrame.setAttribute(
     "style",
     `background-image: url('${dataArray[curr][0].image}');`
@@ -312,6 +325,7 @@ function checkNum(e) {
 }
 function changeType() {
   for (const i of selectType) {
+    i.classList.remove("window--active");
     if (
       i.firstElementChild.attributes[0].value.length <
       i.firstElementChild.attributes[1].value.length
@@ -332,11 +346,12 @@ function changeType() {
     this.firstElementChild.attributes[0].value,
     this.firstElementChild.attributes[1].value,
   ];
+  this.classList.add("window--active");
   currentWindow = +this.attributes[0].value;
   switch (currentWindow) {
     case 1:
       blockGlass.className = "window-glass";
-      nameType.innerText = "Одностворчетое";
+      nameType.innerText = "Одностворчатое";
       refreshData(1);
       break;
     case 2:
@@ -346,17 +361,18 @@ function changeType() {
       break;
     case 3:
       blockGlass.className = "window-glass-triple";
-      nameType.innerText = "Трехстворчетое";
+      nameType.innerText = "Трехстворчатое";
       refreshData(3);
       break;
     case 4:
       blockGlass.className = "window-glass-quad";
-      nameType.innerText = "Четырехстворчетое";
+      nameType.innerText = "Четырехстворчатое";
       refreshData(4);
       break;
 
     default:
-      nameType.innerText = "Одностворчетое";
+      blockGlass.className = "window-glass";
+      nameType.innerText = "Одностворчатое";
       refreshData(1);
       break;
   }
@@ -462,7 +478,7 @@ function changeOptions() {
   } else if (this.parentNode.attributes[1].value === "cab") {
     if (this.firstElementChild.attributes[0].value === "prev") {
       let curElem;
-      for (let i = 0; i < dataArray[0].length; i++) {
+      for (let i = 0; i < dataArray[5].length; i++) {
         if (
           dataArray[5][i].title ===
           this.parentNode.children[1].firstElementChild.innerText

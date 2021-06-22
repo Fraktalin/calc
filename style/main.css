@@ -42,6 +42,7 @@ img {
 }
 
 .checkbox-label:before {
+  transition: 0.5s;
   content: "";
   display: block;
   position: absolute;
@@ -76,6 +77,7 @@ img {
 }
 
 .ios-toggle:checked + .checkbox-label:before {
+  transition: 0.5s;
   left: calc(100% - 24px);
   box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, 0.3);
 }
@@ -87,6 +89,7 @@ img {
 }
 
 #checkbox1 + .checkbox-label {
+  transition: 0.5s;
   box-shadow: inset 0 0 0 0px rgb(175, 175, 175), 0 0 0 2px #dddddd;
 }
 
@@ -122,14 +125,49 @@ select {
   width: 100%;
 }
 .frame-glass-wrap {
+  transition: 0.3s;
   position: relative;
 }
+.frame-glass-wrap-fixed {
+  transition: 0.3s;
+  z-index: 3;
+  position: fixed;
+  top: -70px;
+  width: 100%;
+  background: rgb(34, 34, 34);
+  background: linear-gradient(
+    90deg,
+    rgba(34, 34, 34, 1) 0%,
+    rgba(47, 47, 47, 1) 50%,
+    rgba(34, 34, 34, 1) 100%
+  );
+  left: -20px;
+}
+
 .window {
+  transition: 0.5s;
   margin-right: auto;
   cursor: pointer;
   margin-bottom: 80px;
   width: 80px;
   height: 80px;
+  opacity: 0.5;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.window:hover {
+  opacity: 1;
+}
+.window--active {
+  animation: fade 0.5s linear;
+  box-shadow: 0px 0px 15px 0px #ffffff;
+  opacity: 1;
 }
 .window-glass {
   position: absolute;
@@ -158,7 +196,7 @@ select {
   margin: 0 auto;
   z-index: -1;
   margin-top: 20px;
-  width: 480px;
+  width: 476px;
   height: 320px;
   transform: translate(10%, 40%);
 }
@@ -179,6 +217,9 @@ select {
   position: relative;
   width: 560px;
   height: 560px;
+}
+.animation--active {
+  animation: fade 1s linear;
 }
 .border-bot {
   overflow: visible;
@@ -387,8 +428,8 @@ i {
   text-align: center;
   background: black;
   position: absolute;
-  left: 0;
-  top: 70px;
+  left: 10%;
+  top: 60px;
   width: 345px;
   height: 135px;
   box-shadow: 0px 4px 16px rgba(255, 255, 255, 0.25);
@@ -453,6 +494,7 @@ i {
   flex-wrap: wrap;
 }
 .extend-item {
+  transition: 0.5s;
   cursor: pointer;
   padding: 0 8px;
   margin-right: 16px;
@@ -604,6 +646,9 @@ i {
     width: 300px;
     height: 300px;
   }
+  .window-frame-fixed {
+    margin-left: 30px;
+  }
   .window-glass {
     width: 117px;
     height: 234px;
@@ -617,29 +662,43 @@ i {
     width: 250px;
     height: 160px;
   }
+  .ios-toggle:checked + .checkbox-label:before {
+    left: 0;
+    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
+  }
+  .ios-toggle:checked + .checkbox-label:before {
+    top: calc(100% - 14px);
+    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
+  }
   .window-glass-quad {
     width: 220px;
     height: 209px;
   }
-  .frame-glass-wrap {
-    margin-left: 90px;
+  .checkbox-label:before {
+    height: 16px;
+    width: 16px;
   }
   .border-bot {
     width: 80%;
-    left: -10%;
+    right: 0;
+  }
+  .checkbox-label {
+    padding: 8px;
+    height: 40px;
   }
   .border-right {
     right: 45px;
     height: 310px;
+  }
+  #toggles {
+    width: 0px;
+    text-align: center;
   }
   .main-title {
     font-size: 28px;
   }
 }
 @media screen and (max-width: 400px) {
-  .checkbox-label {
-    height: 26px;
-  }
   .frame-glass-wrap {
     margin-left: 20px;
   }
@@ -650,18 +709,6 @@ i {
   .border-bot {
     width: 90%;
     left: 2%;
-  }
-  .ios-toggle:checked + .checkbox-label:before {
-    left: 0;
-    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
-  }
-  .ios-toggle:checked + .checkbox-label:before {
-    top: calc(100% - 14px);
-    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgb(0 0 0 / 30%);
-  }
-  #toggles {
-    width: 0px;
-    text-align: center;
   }
   .checkbox-label {
     padding: 7px;
