@@ -23,12 +23,43 @@ const widthInp = document.querySelector("#widthInp");
 const heightInp = document.querySelector("#heightInp");
 const frameGlassWrap = document.querySelector(".frame-glass-wrap");
 const infoWrap = document.querySelector(".info-wrap");
+const orderButton = document.querySelector(".order-button");
+const contentWrap = document.querySelector(".content-wrap");
+const addCart = document.querySelector(".add-pos-dis");
+const messageAdd = document.querySelector("#messageAdd");
+const cart = document.querySelector("#cart");
+const cartCount = document.querySelector(".cart-count");
+const backCal = document.querySelector("#back-cal");
+const preMessage = document.querySelector(".pre-message");
+const overlay = document.querySelector(".dark-body");
 let currentWindow = 1;
+var products = { extends: {} };
+if (localStorage.getItem("UserData")) {
+  var userData = JSON.parse(localStorage.getItem("UserData"));
+} else {
+  var userData = {
+    person: {
+      fullName: "Васян",
+      phone: 380993344555,
+      city: "dnipro",
+      mail: "ivan@mail.com",
+      comment: "кола без льда и детское меню пожалуйста",
+    },
+    products: [],
+  };
+}
+function showCount() {
+  cartCount.innerText = userData.products.length;
+}
+showCount();
+var currentOrder = [];
+localStorage.setItem("UserData", JSON.stringify(userData));
 let dataArray = [];
 for (const i of inputs) {
   i.addEventListener("keypress", checkNum);
   i.addEventListener("blur", checkMax);
   i.addEventListener("blur", setParam);
+  i.addEventListener("focus", showPlace);
 }
 extendBtn.addEventListener("click", refreshItems);
 for (const i of selects) {
@@ -51,10 +82,12 @@ for (const i of choiceOpt) {
   i.children[0].addEventListener("click", showSum);
   i.children[2].addEventListener("click", showSum);
 }
+orderButton.addEventListener("click", showCart);
 for (const i of extendItems) {
   i.addEventListener("click", choiceExtend);
   i.addEventListener("click", showSum);
 }
+backCal.addEventListener("click", showCalc);
 document.addEventListener("scroll", fixedBlock);
 function sendRequest(url) {
   return fetch(url)
@@ -67,13 +100,177 @@ function sendRequest(url) {
     });
 }
 sendRequest(dataWindows);
-function choiceExtend() {
-  this.classList.toggle("extend-item--active");
-}
 function refreshItems() {
   for (const i of extendItems) {
     i.classList.remove("extend-item--active");
   }
+}
+function showCalc() {
+  cart.classList.add("hidden");
+  contentWrap.classList.remove("hidden");
+}
+function addingToCart() {
+  let extendsW = {
+    lock: false,
+    windowsill: false,
+    meticulous: false,
+    net: false,
+    slopes: false,
+  };
+  messageToCart();
+  products.glass = choiceGlass.firstChild.innerText;
+  products.lam = choiceLam.firstChild.innerText;
+  products.type = currentWindow;
+  products.width = inputs[0].value;
+  products.height = inputs[1].value;
+  products.cab = choiceCab.innerText;
+  products.profile = selects[0].value;
+  products.paket = selects[1].value;
+  products.fittings = selects[2].value;
+  products.multiply = 1;
+  for (const i of extendItems) {
+    if (i.classList.contains("extend-item--active")) {
+      extendsW[i.attributes[0].value] = true;
+    }
+  }
+  products.extends = extendsW;
+  userData.products.push(products);
+  console.log(userData.products);
+  localStorage.setItem("UserData", JSON.stringify(userData));
+  refreshData(currentWindow);
+  showCount();
+}
+function choiceExtend() {
+  this.classList.toggle("extend-item--active");
+}
+function showCart() {
+  contentWrap.classList.add("hidden");
+  cart.classList.remove("hidden");
+
+  const tableBody = document.querySelector("#tableBody");
+  if (tableBody.firstChild) {
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.firstChild);
+    }
+  }
+  let fromFile = userData.products;
+  for (let i = 0; i < fromFile.length; i++) {
+    let currLam;
+    let currGlass;
+    let classGlass;
+    let nameType;
+    for (let j = 0; j < dataArray[fromFile[i].type].length; j++) {
+      switch (fromFile[i].type) {
+        case 1:
+          classGlass = "table-window-glass";
+          nameType = "Одностворчатое";
+          break;
+        case 2:
+          classGlass = "table-window-glass-double";
+          nameType = "Двухстворчатое";
+          break;
+        case 3:
+          classGlass = "table-window-glass-triple";
+          nameType = "Трехстворчатое";
+          break;
+        case 4:
+          classGlass = "table-window-glass-quad";
+          nameType = "Четырехстворчатое";
+          break;
+
+        default:
+          classGlass = "table-window-glass";
+          nameType = "Одностворчатое";
+          break;
+      }
+      if (dataArray[fromFile[i].type][j].title === fromFile[i].lam) {
+        currLam = dataArray[fromFile[i].type][j].image;
+      }
+    }
+
+    for (let j = 0; j < dataArray[0].length; j++) {
+      if (dataArray[0][j].title === fromFile[i].glass) {
+        currGlass = dataArray[0][j].image;
+      }
+    }
+    let tableItem = `
+    <tr>
+      <td>
+        <div class="window-frame animation--active table-window-frame" style="background-image: url('${currLam}">
+          <div class="window-glass table-window-glass ${classGlass}" style="background-image: url('${currGlass}"></div>
+        </div>
+      
+      </td>
+      <td><h2 class="table-title">${nameType}, ${fromFile[i].height}х${fromFile[i].width}</h2><span class="table-text">Профиль - ${fromFile[i].profile}, 
+          Стеклопакет - ${fromFile[i].paket},Фурнитура - ${fromFile[i].fittings}, </span><span class="table-text">Ламинация - ${fromFile[i].lam}, 
+          Стекло - ${fromFile[i].glass}, Ручка - ${fromFile[i].cab}</span></td>
+      <td> 
+      <div class="multiplier-wrap">
+          <button class="button-table-multiply button-toggle" data-id="${i}" data-value="decrease">
+            <img
+              class="button-arrow"
+              src="./images/arrow.svg"
+              alt=""
+            />
+          </button>
+          <span class="multiplier-count">${fromFile[i].multiply} </span>
+          <button class="button-table-multiply button-toggle" data-id="${i}" data-value="increase">
+            <img
+              class="button-right-arrow"
+              src="./images/arrow.svg"
+              alt=""
+            />
+          </button>
+      </div></td>
+      <td>
+        <button class="button-table-trash remove-item" data-id="${i}">
+          <img class="table-image" src="./images/trash.svg" alt="">
+        </button>
+      </td>
+    </tr>
+
+    `;
+    tableBody.innerHTML += tableItem;
+  }
+  const removeItem = document.querySelectorAll(".remove-item");
+  const buttonMultiply = document.querySelectorAll(".button-table-multiply");
+  for (const i of buttonMultiply) {
+    i.addEventListener("click", changeMultiply);
+  }
+  for (const i of removeItem) {
+    i.addEventListener("click", removedItem);
+  }
+  function changeMultiply() {
+    console.log(fromFile[this.attributes[1].value].multiply);
+    if (this.attributes[2].value === "decrease") {
+      fromFile[this.attributes[1].value].multiply--;
+    } else if (this.attributes[2].value === "increase") {
+      fromFile[this.attributes[1].value].multiply++;
+    }
+    localStorage.setItem("UserData", JSON.stringify(userData));
+    showCart();
+  }
+  function removedItem() {
+    console.log(fromFile);
+    console.log(fromFile[this.attributes[1].value]);
+    fromFile.splice(this.attributes[1].value, 1);
+    localStorage.setItem("UserData", JSON.stringify(userData));
+    showCart();
+  }
+}
+function messageToCart() {
+  messageAdd.firstElementChild === null
+    ? (messageAdd.innerHTML = `
+  <div class="cart-message">
+    <span
+      >ТОВАР ДОБАВЛЕН В КОРЗИНУ вы можете просчитать следующую позицию</span
+    >
+  </div>`)
+    : messageAdd.classList.remove("hidden");
+  products = {};
+  overlay.classList.remove("hidden");
+  setTimeout(() => messageAdd.classList.add("hidden"), 2000);
+  setTimeout(() => overlay.classList.add("hidden"), 2000);
 }
 function fixedBlock() {
   if (document.documentElement.getBoundingClientRect().top < -400) {
@@ -89,6 +286,15 @@ function fixedBlock() {
 function setParam() {
   curWid.textContent = widthInp.value + " мм";
   curHei.textContent = heightInp.value + " мм";
+  if (inputs[0].value && inputs[1].value) {
+    addCart.addEventListener("click", addingToCart);
+    addCart.classList.add("add-pos-act");
+  } else {
+    addCart.removeEventListener("click", addingToCart);
+  }
+}
+function showPlace() {
+  this.placeholder = "";
 }
 function closeMessage() {
   warning.classList.add("hidden");
@@ -147,6 +353,10 @@ function refreshData(curr = 1) {
   choiceLam.innerHTML = `<span class="choice-text animation--active">${dataArray[curr][0].title}</span>`;
   choiceGlass.innerHTML = `<span class="choice-text animation--active">${dataArray[0][0].title}</span>`;
   choiceCab.innerHTML = `<span class="choice-text animation--active">${dataArray[5][0].title}</span>`;
+  for (const i of extendItems) {
+    i.classList.remove("extend-item--active");
+  }
+  blockFrame.className = "window-frame-mirror";
   blockFrame.setAttribute(
     "style",
     `background-image: url('${dataArray[curr][0].image}');`
@@ -159,6 +369,7 @@ function refreshData(curr = 1) {
 function goStart() {
   let curRefresh = this.parentNode.parentNode.firstElementChild
     .firstElementChild.innerText;
+  console.log(curRefresh);
   switch (curRefresh) {
     case "ЛАМИНАЦИЯ":
       choiceLam.innerHTML = `<span class="choice-text">${dataArray[currentWindow][0].title}</span>`;
@@ -291,19 +502,20 @@ function showSum() {
 function checkSelect() {
   if (selects[0].value && selects[1].value && selects[2].value) {
     mainBlock.classList.remove("hidden");
+    preMessage.classList.add("hidden");
   }
 }
 function checkMax() {
   showSum();
-  if (this.attributes.placeholder.value === "Ширина, мм") {
-    if (this.value > 2700) {
+  if (this.attributes.id.value === "widthInp") {
+    if (+this.value > 2700) {
       this.value = 2700;
       showSum();
       showMessage();
       setTimeout(() => closeMessage(), 2000);
     }
   }
-  if (this.attributes.placeholder.value === "Высота, мм") {
+  if (this.attributes.id.value === "heightInp") {
     if (this.value > 1600) {
       this.value = 1600;
       showSum();
@@ -351,23 +563,33 @@ function changeType() {
   switch (currentWindow) {
     case 1:
       blockGlass.className = "window-glass";
+      blockFrame.className = "window-frame-mirror";
       nameType.innerText = "Одностворчатое";
       refreshData(1);
       break;
     case 2:
       blockGlass.className = "window-glass-double";
+      blockFrame.className = "window-frame";
       nameType.innerText = "Двухстворчатое";
       refreshData(2);
       break;
     case 3:
       blockGlass.className = "window-glass-triple";
+      blockFrame.className = "window-frame";
       nameType.innerText = "Трехстворчатое";
       refreshData(3);
       break;
     case 4:
       blockGlass.className = "window-glass-quad";
+      blockFrame.className = "window-frame";
       nameType.innerText = "Четырехстворчатое";
       refreshData(4);
+      break;
+    case 5:
+      blockGlass.className = "window-glass";
+      blockFrame.className = "window-frame";
+      nameType.innerText = "Балконная дверь";
+      refreshData(2);
       break;
 
     default:
@@ -379,6 +601,7 @@ function changeType() {
 }
 function changeOptions() {
   if (this.parentNode.attributes[1].value === "lam") {
+    console.log(this.firstElementChild.attributes[0].value);
     if (this.firstElementChild.attributes[0].value === "prev") {
       let curElem;
       for (let i = 0; i < dataArray[currentWindow].length; i++) {
