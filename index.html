@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="./style/main.css" />
   </head>
   <body>
+    <div class="dark-body hidden"></div>
     <div class="content-wrap">
       <div class="container">
         <div class="row">
@@ -91,7 +92,7 @@
           </div>
           <div class="col-sm-0 col-md-1">
             <button class="order-button">
-              <span class="cart-count">3</span>
+              <span class="cart-count"></span>
               <img
                 class="cart-image"
                 src="./images/cart.svg"
@@ -103,7 +104,6 @@
         </div>
       </div>
       <div class="container">
-        <div class="dark-body hidden"></div>
         <div class="pre-message">
           <h1 class="pre-message-title">
             Для работы калькулятора пожалуйста выберите: профиль, стеклопакет и
@@ -165,7 +165,7 @@
                   loading="lazy"
                 />
               </div>
-              <div data-mode="1" class="window">
+              <div data-mode="5" class="window">
                 <img
                   data-active="./images/window-balkonActive.svg"
                   src="./images/window-balkon.svg"
@@ -415,8 +415,9 @@
                 <div class="row">
                   <div class="col-12 bottom-block">
                     <div class="result-wrap">
-                      Текущая стоимость:
+                      <span>Текущая стоимость:</span>
                       <span class="text-result" id="result">10000</span>
+                      <span>грн</span>
                     </div>
                     <div data-mode="4" class="add-pos-dis">
                       <span class="add-simbol">+</span>
@@ -446,25 +447,83 @@
         <table class="main-table">
           <thead>
             <tr>
-              <td class="table-title table-product">ТОВАР</td>
-              <td class="table-title table-desc">ОПИСАНИЕ</td>
-              <td class="table-title table-count">КОЛИЧЕСТВО</td>
+              <td class="head-table-title table-product">ТОВАР</td>
+              <td class="head-table-title table-desc">ОПИСАНИЕ</td>
+              <td class="head-table-title table-count">КОЛИЧЕСТВО</td>
               <td></td>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
-        <footer class="table-footer">
-          <div class="line"></div>
-          <span class="footer-text">
-            Данная цена примерная и может отличаться от действительной так как
-            зависит от многих параметров. Для более детально расчета и
-            информации по скидке рекомендуем нажать "Заказать" для связи с
-            менеджером.
-          </span>
-        </footer>
+        <div class="form-wrap hidden">
+          <form action="mail.php" method="POST" class="main-form">
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Имя"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Email"
+              class="main-form-input"
+            />
+            <input
+              type="text"
+              name="user_phone"
+              placeholder="Телефон"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="text"
+              name="user_city"
+              placeholder="Город"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="text"
+              name="user_comment"
+              placeholder="Комментарий"
+              class="main-form-input"
+            />
+            <textarea
+              class="hidden"
+              name="table"
+              id="aria-table"
+              cols="3000"
+              class=""
+              rows="1000"
+            ></textarea>
+            <button class="submit-button" type="submit">заказать</button>
+          </form>
+        </div>
+        <div class="resul-wrap">
+          <div class="total-result-wrap">
+            <img
+              src="./images/info.svg"
+              class="info-cart"
+              alt="Информация"
+              loading="lazy"
+            />
+            <div class="warning-block-cart hidden">
+              Данная цена примерная и может отличаться от действительной так как
+              зависит от многих параметров. Для более детально расчета и
+              информации по скидке рекомендуем нажать "Заказать" для связи с
+              менеджером.
+            </div>
+            <span class="result-text">Общая стоимость</span>
+            <span class="result-price">123 213 </span>
+            <span class="result-text"> грн</span>
+          </div>
+          <button id="main-order" class="main-order-button">заказать</button>
+        </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
