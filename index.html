@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Window Calculator</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <meta name="description" content="Калькулятор Окон" />
+    <meta
+      name="description"
+      content="Калькулятор Окон, Steko, Стеко, Калькулятор Стеко"
+    />
     <meta name="theme-color" content="#000000" />
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
@@ -21,346 +24,506 @@
     <link rel="stylesheet" href="./style/main.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-2 small-logo">
-          <div class="top-section-wrap">
-            <a href="#" aria-label="main logo" class="logo-link">
-              <img
-                class="logo"
-                src="./images/logo.png"
-                alt="Логотип Стеко"
-                loading="lazy"
-              />
-            </a>
-            <div class="small-toggle">
-              <div id="toggles">
-                <input
-                  type="checkbox"
-                  name="checkbox1"
-                  id="checkbox1"
-                  class="ios-toggle"
-                  checked
-                  aria-label="выбор вида"
-                />
-                <label
-                  for="checkbox1"
-                  class="checkbox-label"
-                  data-off=""
-                  data-on=""
-                ></label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-3">
-          <select class="main-select" name="select" required="">
-            <option value="">Профиль</option>
-            <option value="8000">Steko IDEAL 8000 Round Line</option>
-            <option value="7000">Steko IDEAL 7000</option>
-            <option value="4000">Steko IDEAL 4000</option>
-            <option value="2000">Steko IDEAL 2000</option>
-            <option value="V90">Steko V90</option>
-            <option value="S700">Steko S700</option>
-            <option value="S500">Steko S500</option>
-            <option value="S400">Steko S400</option>
-          </select>
-        </div>
-        <div class="col-sm-12 col-md-3">
-          <select class="main-select" name="select" required="">
-            <option value="">Стеклопакет</option>
-            <option value="1">Однокамерный</option>
-            <option value="2">Двухкамерный</option>
-            <option value="1+">1-кам Энергосберегающие</option>
-            <option value="2+">2-кам Энергосберегающие</option>
-            <option value="sndw">Сендвич панели</option>
-          </select>
-        </div>
-        <div class="col-sm-12 col-md-3">
-          <select class="main-select" name="select" required="">
-            <option value="">Фурнитура</option>
-            <option value="Steko">Steko+</option>
-            <option value="ELITE">Axor ELITE +</option>
-            <option value="Komfort">Axor Komfort Line k-3</option>
-            <option value="Maco">Maco VZ</option>
-          </select>
-        </div>
-        <div class="col-sm-0 col-md-1 big-toggle">
-          <div id="toggles">
-            <input
-              type="checkbox"
-              name="checkbox2"
-              id="checkbox2"
-              class="ios-toggle"
-              checked
-              aria-label="выбор вида"
-            />
-            <label
-              for="checkbox2"
-              class="checkbox-label"
-              data-off=""
-              data-on=""
-            ></label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row choice-window-block">
-        <div class="col-xl-2 col-lg-12">
-          <div class="window-wrap">
-            <div data-mode="1" class="window window--active">
-              <img
-                data-active="./images/window-single.svg"
-                src="./images/window-singleActive.svg"
-                alt="Окно одностворчетое"
-                loading="lazy"
-              />
-            </div>
-            <div data-mode="2" class="window">
-              <img
-                data-active="./images/window-doubleActive.svg"
-                src="./images/window-double.svg"
-                alt="Окно двухстворчетое"
-                loading="lazy"
-              />
-            </div>
-            <div data-mode="3" class="window">
-              <img
-                data-active="./images/window-tripleActive.svg"
-                src="./images/window-triple.svg"
-                alt="Окно Трехстворчетое"
-                loading="lazy"
-              />
-            </div>
-            <div data-mode="4" class="window">
-              <img
-                data-active="./images/window-triplePActive.svg"
-                src="./images/window-tripleP.svg"
-                alt="Окно Четырестворчетое"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-md-8 custom-col-frame">
-          <h2 class="main-title" id="type-window">Одностворчатое</h2>
-          <div class="row type-window-wrap">
-            <div class="col-12">
-              <select class="main-select" name="select" required="">
-                <option value="">Поворотно-откидное</option>
-                <option value="Steko">Поворотное</option>
-                <option value="ELITE">Откидное</option>
-                <option value="Komfort">Глухое</option>
-              </select>
-            </div>
-          </div>
-          <div class="frame-glass-wrap">
-            <div class="window-frame animation--active">
-              <div class="window-glass"></div>
-            </div>
-            <div class="border-bot">
-              <img
-                class="arrow-left"
-                src="./images/arrow.svg"
-                alt="Стрелка влево"
-                loading="lazy"
-              />
-              <div class="block-width">Ширина, мм</div>
-              <img
-                class="arrow-right"
-                src="./images/arrow.svg"
-                alt="Стрелка вправо"
-                loading="lazy"
-              />
-            </div>
-            <div class="border-right">
-              <img
-                class="arrow-top"
-                src="./images/arrow.svg"
-                alt="Стрелка вверх"
-                loading="lazy"
-              />
-              <div class="block-height">
-                <span class="reverse-text">Высота, мм</span>
-              </div>
-              <img
-                class="arrow-bot"
-                src="./images/arrow.svg"
-                alt="Стрелка вниз"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-4">
-          <div class="row">
-            <div class="info-wrap">
-              <h3 class="second-title hlp-title d-inline">ШИРИНА И ВЫСОТА</h3>
-              <img
-                src="./images/info.svg"
-                class="info"
-                alt="Информация"
-                loading="lazy"
-              />
-              <div class="warning-block hidden">
-                Внимание! Значение высоты и ширины ограничены Ширина от 500, мм
-                до 2700, мм Высота от 500, мм до 1600, мм
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="row">
-                <div class="col-6">
-                  <input
-                    id="widthInp"
-                    class="main-input"
-                    type="text"
-                    placeholder="Ширина, мм"
-                  />
-                </div>
-                <div class="col-6">
-                  <input
-                    id="heightInp"
-                    class="main-input"
-                    type="text"
-                    placeholder="Высота, мм"
-                  />
-                </div>
-              </div>
-              <div class="row second-title-wrap">
-                <div class="col-10">
-                  <h3 class="second-title">ЛАМИНАЦИЯ</h3>
-                </div>
-                <div class="col-2">
-                  <button class="refresh-button" aria-label="Refresh button">
-                    <img
-                      class="refresh-button-image"
-                      src="./images/icon/refresh.svg"
-                      alt="refresh button"
-                      loading="lazy"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="choice-options" data-select="lam">
-                    <p><i data-arrow="prev" class="arrow left"></i></p>
-                    <div class="choice-wrap choice-wrap-lam"></div>
-                    <p><i data-arrow="next" class="arrow right"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="row second-title-wrap">
-                <div class="col-10">
-                  <h3 class="second-title">СТЕКЛО</h3>
-                </div>
-                <div class="col-2">
-                  <button class="refresh-button" aria-label="Refresh button">
-                    <img
-                      class="refresh-button-image"
-                      src="./images/icon/refresh.svg"
-                      alt="refresh button"
-                      loading="lazy"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="choice-options" data-select="win">
-                    <p><i data-arrow="prev" class="arrow left"></i></p>
-                    <div class="choice-wrap choice-wrap-glass"></div>
-                    <p><i data-arrow="next" class="arrow right"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="row second-title-wrap">
-                <div class="col-10">
-                  <h3 class="second-title">РУЧКА</h3>
-                </div>
-                <div class="col-2">
-                  <button class="refresh-button" aria-label="Refresh button">
-                    <img
-                      class="refresh-button-image"
-                      src="./images/icon/refresh.svg"
-                      alt="refresh button"
-                      loading="lazy"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="choice-options" data-select="cab">
-                    <p><i data-arrow="prev" class="arrow left"></i></p>
-                    <div class="choice-wrap choice-wrap-cab"></div>
-                    <p><i data-arrow="next" class="arrow right"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="row second-title-wrap">
-                <div class="col-10">
-                  <h3 class="second-title extend-title">доп. комплектацию</h3>
-                </div>
-                <div class="col-2">
-                  <button
-                    class="refresh-button extend-button"
-                    aria-label="Refresh button"
-                  >
-                    <img
-                      class="refresh-button-image"
-                      src="./images/icon/refresh.svg"
-                      alt="refresh button"
-                      loading="lazy"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="extend-elems">
-                    <span class="extend-item">Детский замок</span>
-                    <span class="extend-item">Подоконник</span>
-                    <span class="extend-item">Отлив</span>
-                    <span class="extend-item">Сетка</span>
-                    <span class="extend-item">Откосы</span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12 bottom-block">
-                  <div class="result-wrap">
-                    Общая стоимость:
-                    <span class="text-result" id="result">10000</span>
-                  </div>
-                  <button class="order-button">
-                    <img
-                      class="cart-image"
-                      src="./images/cart.svg"
-                      alt="Корзина"
-                      loading="lazy"
-                    />
-                    ЗАКАЗАТЬ
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="line"></div>
+    <div class="dark-body hidden"></div>
+    <div class="content-wrap">
+      <div class="container">
         <div class="row">
-          <span class="footer-text"
-            >Данная цена примерная и может отличаться от действительной так как
-            зависит от многих параметров. Для более детально расчета и
-            информации по скидке рекомендуем нажать "Заказать" для связи с
-            менеджером.
-          </span>
+          <div class="col-sm-12 col-md-2 small-logo">
+            <div class="top-section-wrap">
+              <a href="#" aria-label="main logo" class="logo-link">
+                <img
+                  class="logo"
+                  src="./images/logo.png"
+                  alt="Логотип Стеко"
+                  loading="lazy"
+                />
+              </a>
+              <div class="small-toggle">
+                <div id="toggles">
+                  <input
+                    type="checkbox"
+                    name="checkbox1"
+                    id="checkbox1"
+                    class="ios-toggle"
+                    checked
+                    aria-label="выбор вида"
+                  />
+                  <label
+                    for="checkbox1"
+                    class="checkbox-label"
+                    data-off=""
+                    data-on=""
+                  ></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <select class="main-select" name="select" required="">
+              <option value="">Профиль</option>
+              <option value="8000">Steko IDEAL 8000 Round Line</option>
+              <option value="7000">Steko IDEAL 7000</option>
+              <option value="4000">Steko IDEAL 4000</option>
+              <option value="2000">Steko IDEAL 2000</option>
+              <option value="V90">Steko V90</option>
+              <option value="S700">Steko S700</option>
+              <option value="S500">Steko S500</option>
+              <option value="S400">Steko S400</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <select class="main-select" name="select" required="">
+              <option value="">Стеклопакет</option>
+              <option value="1">Однокамерный</option>
+              <option value="2">Двухкамерный</option>
+              <option value="1+">1-кам Энергосберегающие</option>
+              <option value="2+">2-кам Энергосберегающие</option>
+              <option value="sndw">Сендвич панели</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <select class="main-select" name="select" required="">
+              <option value="">Фурнитура</option>
+              <option value="Steko">Steko+</option>
+              <option value="ELITE">Axor ELITE +</option>
+              <option value="Komfort">Axor Komfort Line k-3</option>
+              <option value="Maco">Maco VZ</option>
+            </select>
+          </div>
+          <div class="col-sm-0 col-md-1">
+            <button class="order-button">
+              <span class="cart-count"></span>
+              <img
+                class="cart-image"
+                src="./images/cart.svg"
+                alt="Корзина"
+                loading="lazy"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pre-message">
+          <h1 class="pre-message-title">
+            Для работы калькулятора пожалуйста выберите: профиль, стеклопакет и
+            фурнитуру
+          </h1>
+        </div>
+        <div class="row choice-window-block hidden">
+          <div class="col-xl-2 col-lg-12">
+            <div class="window-wrap">
+              <div class="big-toggle">
+                <div id="toggles">
+                  <input
+                    type="checkbox"
+                    name="checkbox2"
+                    id="checkbox2"
+                    class="ios-toggle"
+                    checked
+                    aria-label="выбор вида"
+                  />
+                  <label
+                    for="checkbox2"
+                    class="checkbox-label"
+                    data-off=""
+                    data-on=""
+                  >
+                  </label>
+                  <div class="toggle-text">ПВХ</div>
+                </div>
+              </div>
+              <div data-mode="1" class="window window--active">
+                <img
+                  data-active="./images/window-single.svg"
+                  src="./images/window-singleActive.svg"
+                  alt="Окно одностворчетое"
+                  loading="lazy"
+                />
+              </div>
+              <div data-mode="2" class="window">
+                <img
+                  data-active="./images/window-doubleActive.svg"
+                  src="./images/window-double.svg"
+                  alt="Окно двухстворчетое"
+                  loading="lazy"
+                />
+              </div>
+              <div data-mode="3" class="window">
+                <img
+                  data-active="./images/window-tripleActive.svg"
+                  src="./images/window-triple.svg"
+                  alt="Окно Трехстворчетое"
+                  loading="lazy"
+                />
+              </div>
+              <div data-mode="4" class="window">
+                <img
+                  data-active="./images/window-triplePActive.svg"
+                  src="./images/window-tripleP.svg"
+                  alt="Окно Четырестворчетое"
+                  loading="lazy"
+                />
+              </div>
+              <div data-mode="5" class="window">
+                <img
+                  data-active="./images/window-balkonActive.svg"
+                  src="./images/window-balkon.svg"
+                  alt="Балконная дверь"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-md-8 custom-col-frame">
+            <h2 class="main-title" id="type-window">Одностворчатое</h2>
+            <div class="row type-window-wrap">
+              <div class="col-12">
+                <select class="main-select" name="select" required="">
+                  <option value="">Поворотно-откидное</option>
+                  <option value="Steko">Поворотное</option>
+                  <option value="ELITE">Откидное</option>
+                  <option value="Komfort">Глухое</option>
+                </select>
+              </div>
+            </div>
+            <div class="frame-glass-wrap">
+              <div class="window-frame animation--active">
+                <div class="window-glass"></div>
+              </div>
+              <div class="border-bot">
+                <img
+                  class="arrow-left"
+                  src="./images/arrow.svg"
+                  alt="Стрелка влево"
+                  loading="lazy"
+                />
+                <div class="block-width">Ширина, мм</div>
+                <img
+                  class="arrow-right"
+                  src="./images/arrow.svg"
+                  alt="Стрелка вправо"
+                  loading="lazy"
+                />
+              </div>
+              <div class="border-right">
+                <img
+                  class="arrow-top"
+                  src="./images/arrow.svg"
+                  alt="Стрелка вверх"
+                  loading="lazy"
+                />
+                <div class="block-height">
+                  <span class="reverse-text">Высота, мм</span>
+                </div>
+                <img
+                  class="arrow-bot"
+                  src="./images/arrow.svg"
+                  alt="Стрелка вниз"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-4">
+            <div class="row">
+              <div class="info-wrap">
+                <h3 class="second-title hlp-title d-inline">ШИРИНА И ВЫСОТА</h3>
+                <img
+                  src="./images/info.svg"
+                  class="info"
+                  alt="Информация"
+                  loading="lazy"
+                />
+                <div class="warning-block hidden">
+                  Внимание! Значение высоты и ширины ограничены Ширина от 500,
+                  мм до 2700, мм Высота от 500, мм до 1600, мм
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6">
+                    <input
+                      id="widthInp"
+                      class="main-input"
+                      type="text"
+                      placeholder="Ширина, мм"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <input
+                      id="heightInp"
+                      class="main-input"
+                      type="text"
+                      placeholder="Высота, мм"
+                    />
+                  </div>
+                </div>
+                <div class="row second-title-wrap">
+                  <div class="col-10">
+                    <h3 class="second-title">ЛАМИНАЦИЯ</h3>
+                  </div>
+                  <div class="col-2">
+                    <button class="refresh-button" aria-label="Refresh button">
+                      <img
+                        class="refresh-button-image"
+                        src="./images/icon/refresh.svg"
+                        alt="refresh button"
+                        loading="lazy"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="choice-options" data-select="lam">
+                      <button class="button-toggle">
+                        <img
+                          data-direction="prev"
+                          class="button-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                      <div class="choice-wrap choice-wrap-lam"></div>
+                      <button class="button-toggle">
+                        <img
+                          data-direction="next"
+                          class="button-arrow button-right-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row second-title-wrap">
+                  <div class="col-10">
+                    <h3 class="second-title">СТЕКЛО</h3>
+                  </div>
+                  <div class="col-2">
+                    <button class="refresh-button" aria-label="Refresh button">
+                      <img
+                        class="refresh-button-image"
+                        src="./images/icon/refresh.svg"
+                        alt="refresh button"
+                        loading="lazy"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="choice-options" data-select="win">
+                      <button class="button-toggle">
+                        <img
+                          data-direction="prev"
+                          class="button-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                      <div class="choice-wrap choice-wrap-glass"></div>
+                      <button class="button-toggle">
+                        <img
+                          data-direction="next"
+                          class="button-arrow button-right-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row second-title-wrap">
+                  <div class="col-10">
+                    <h3 class="second-title">РУЧКА</h3>
+                  </div>
+                  <div class="col-2">
+                    <button class="refresh-button" aria-label="Refresh button">
+                      <img
+                        class="refresh-button-image"
+                        src="./images/icon/refresh.svg"
+                        alt="refresh button"
+                        loading="lazy"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="choice-options" data-select="cab">
+                      <button class="button-toggle">
+                        <img
+                          data-direction="prev"
+                          class="button-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                      <div class="choice-wrap choice-wrap-cab"></div>
+                      <button class="button-toggle">
+                        <img
+                          data-direction="next"
+                          class="button-right-arrow"
+                          src="./images/arrow.svg"
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row second-title-wrap">
+                  <div class="col-10">
+                    <h3 class="second-title extend-title">доп. комплектацию</h3>
+                  </div>
+                  <div class="col-2">
+                    <button
+                      class="refresh-button extend-button"
+                      aria-label="Refresh button"
+                    >
+                      <img
+                        class="refresh-button-image"
+                        src="./images/icon/refresh.svg"
+                        alt="refresh button"
+                        loading="lazy"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="extend-elems">
+                      <span data-extend="lock" class="extend-item"
+                        >Детский замок</span
+                      >
+                      <span data-extend="windowsill" class="extend-item"
+                        >Подоконник</span
+                      >
+                      <span data-extend="meticulous" class="extend-item"
+                        >Отлив</span
+                      >
+                      <span data-extend="net" class="extend-item">Сетка</span>
+                      <span data-extend="slopes" class="extend-item"
+                        >Откосы</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 bottom-block">
+                    <div class="result-wrap">
+                      <span>Текущая стоимость:</span>
+                      <span class="text-result" id="result">10000</span>
+                      <span>грн</span>
+                    </div>
+                    <div data-mode="4" class="add-pos-dis">
+                      <span class="add-simbol">+</span>
+                      <span class="add-simbol">Добавить</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="messageAdd"></div>
+    </div>
+    <div id="cart" class="hidden cart-wrap">
+      <div class="container">
+        <a href="#" aria-label="main logo" class="logo-link">
+          <img
+            class="logo"
+            src="./images/logo.png"
+            alt="Логотип Стеко"
+            loading="lazy"
+          />
+        </a>
+        <h2 class="cart-main-title">Корзина</h2>
+        <button id="back-cal" class="button-back">Назад</button>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <td class="head-table-title table-product">ТОВАР</td>
+              <td class="head-table-title table-desc">ОПИСАНИЕ</td>
+              <td class="head-table-title table-count">КОЛИЧЕСТВО</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <div class="form-wrap hidden">
+          <form action="mail.php" method="POST" class="main-form">
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Имя"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Email"
+              class="main-form-input"
+            />
+            <input
+              type="text"
+              name="user_phone"
+              placeholder="Телефон"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="text"
+              name="user_city"
+              placeholder="Город"
+              class="main-form-input"
+              required
+            />
+            <input
+              type="text"
+              name="user_comment"
+              placeholder="Комментарий"
+              class="main-form-input"
+            />
+            <textarea
+              class="hidden"
+              name="table"
+              id="aria-table"
+              cols="3000"
+              class=""
+              rows="1000"
+            ></textarea>
+            <button class="submit-button" type="submit">заказать</button>
+          </form>
+        </div>
+        <div class="resul-wrap">
+          <div class="total-result-wrap">
+            <img
+              src="./images/info.svg"
+              class="info-cart"
+              alt="Информация"
+              loading="lazy"
+            />
+            <div class="warning-block-cart hidden">
+              Данная цена примерная и может отличаться от действительной так как
+              зависит от многих параметров. Для более детально расчета и
+              информации по скидке рекомендуем нажать "Заказать" для связи с
+              менеджером.
+            </div>
+            <span class="result-text">Общая стоимость</span>
+            <span class="result-price">123 213 </span>
+            <span class="result-text"> грн</span>
+          </div>
+          <button id="main-order" class="main-order-button">заказать</button>
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
