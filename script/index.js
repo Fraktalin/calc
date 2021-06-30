@@ -117,6 +117,7 @@ function refreshItems() {
     i.classList.remove("extend-item--active");
   }
 }
+
 function showCalc() {
   showCount();
   cart.classList.add("hidden");
