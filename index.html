@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -60,7 +61,7 @@
           </div>
           <div class="col-sm-12 col-md-3">
             <select class="main-select" name="select" required="">
-              <option value="">Профиль</option>
+              <option disa value="">Профиль</option>
               <option value="8000">Steko IDEAL 8000 Round Line</option>
               <option value="7000">Steko IDEAL 7000</option>
               <option value="4000">Steko IDEAL 4000</option>
@@ -246,6 +247,7 @@
                 <div class="row">
                   <div class="col-6">
                     <input
+                      autocomplete="off"
                       id="widthInp"
                       class="main-input"
                       type="text"
@@ -254,6 +256,7 @@
                   </div>
                   <div class="col-6">
                     <input
+                      autocomplete="off"
                       id="heightInp"
                       class="main-input"
                       type="text"
@@ -396,17 +399,15 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="extend-elems">
-                      <span data-extend="lock" class="extend-item"
+                      <span data-extend="Детский замок" class="extend-item"
                         >Детский замок</span
                       >
-                      <span data-extend="windowsill" class="extend-item"
+                      <span data-extend="Подоконник" class="extend-item"
                         >Подоконник</span
                       >
-                      <span data-extend="meticulous" class="extend-item"
-                        >Отлив</span
-                      >
-                      <span data-extend="net" class="extend-item">Сетка</span>
-                      <span data-extend="slopes" class="extend-item"
+                      <span data-extend="Отлив" class="extend-item">Отлив</span>
+                      <span data-extend="Сетка" class="extend-item">Сетка</span>
+                      <span data-extend="Откосы" class="extend-item"
                         >Откосы</span
                       >
                     </div>
@@ -417,7 +418,14 @@
                     <div class="result-wrap">
                       <span>Текущая стоимость:</span>
                       <span class="text-result" id="result">10000</span>
-                      <span>грн</span>
+                      <div class="uah-wrap">
+                        <span id="uah" class="result-text result-text-uah">
+                          ₴</span
+                        >
+                        <div class="warning-block-uah hidden">
+                          Украинская гривна
+                        </div>
+                      </div>
                     </div>
                     <div data-mode="4" class="add-pos-dis">
                       <span class="add-simbol">+</span>
@@ -517,7 +525,8 @@
             </div>
             <span class="result-text">Общая стоимость</span>
             <span class="result-price">123 213 </span>
-            <span class="result-text"> грн</span>
+            <span id="uah" class="result-text result-text-uah"> ₴</span>
+            <div class="warning-block-uah hidden">Украинская гривна</div>
           </div>
           <button id="main-order" class="main-order-button">заказать</button>
         </div>
