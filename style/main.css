@@ -361,11 +361,31 @@ select {
   text-transform: uppercase;
   padding-bottom: 24px;
 }
+.uah-wrap {
+  position: relative;
+}
+.result-text-uah {
+  cursor: pointer;
+  font-weight: bold;
+}
+.warning-block-uah {
+  position: absolute;
+  color: white;
+  z-index: 3;
+  padding: 16px;
+  font-size: 18px;
+  text-align: center;
+  background: black;
+  bottom: 80%;
+  right: 0%;
+  box-shadow: 0px 4px 16px rgba(255, 255, 255, 0.25);
+}
 .table-price {
+  text-align: right;
   width: 30%;
   position: absolute;
   bottom: -1%;
-  right: -5%;
+  right: 0%;
   font-weight: bold;
   font-size: 24px;
   line-height: 32px;
@@ -404,7 +424,7 @@ select {
   align-items: center;
   color: #000;
   background: #fff;
-  padding: 22px 16px;
+  padding: 22px 32px;
 }
 .result-text {
   font-size: 18px;
@@ -619,7 +639,7 @@ thead {
 .submit-button {
   display: block;
   margin: 0 auto;
-  margin-top: 76px;
+  margin-top: 40px;
   width: 300px;
   height: 72px;
   background: transparent;
@@ -773,7 +793,7 @@ i {
   background: #000;
   width: 640px;
   padding: 24px;
-  height: 500px;
+  height: 464px;
 }
 .cart-message {
   background: #101010;
@@ -830,15 +850,15 @@ i {
   flex-wrap: nowrap;
   background: white;
   color: #000;
-  width: 280px;
+  padding: 22px 20px;
   height: 72px;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.5s;
   line-height: 28px;
   margin-bottom: 24px;
   text-align: center;
   white-space: nowrap;
-  padding: 0 16px;
 }
 .text-result {
   padding-left: 8px;

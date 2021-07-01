@@ -35,9 +35,13 @@ const cart = document.querySelector("#cart");
 const cartCount = document.querySelector(".cart-count");
 const backCal = document.querySelector("#back-cal");
 const preMessage = document.querySelector(".pre-message");
+const resultPrice = document.querySelector(".result-price");
+const uah = document.querySelectorAll("#uah");
+const warningUah = document.querySelectorAll(".warning-block-uah");
 const overlay = document.querySelector(".dark-body");
 const ariaTable = document.querySelector("#aria-table");
 const body = document.querySelector("body");
+var totalCount;
 var tableForMail = "";
 let currentWindow = 1;
 var products = { extends: {} };
@@ -73,6 +77,7 @@ for (const i of inputs) {
 extendBtn.addEventListener("click", refreshItems);
 for (const i of selects) {
   i.addEventListener("change", checkSelect);
+  i.addEventListener("change", removeOption);
   i.addEventListener("change", showSum);
 }
 for (const i of selectType) {
@@ -86,6 +91,11 @@ for (const i of refreshBtn) {
 mainOrder.addEventListener("click", showForm);
 info.addEventListener("mouseover", showMessage);
 info.addEventListener("mouseout", closeMessage);
+for (const i of uah) {
+  i.addEventListener("mouseover", showUah);
+  i.addEventListener("mouseout", closeUah);
+}
+console.log(uah);
 infoCart.addEventListener("mouseover", showCartMessage);
 infoCart.addEventListener("mouseout", closeCartMessage);
 for (const i of choiceOpt) {
@@ -117,7 +127,16 @@ function refreshItems() {
     i.classList.remove("extend-item--active");
   }
 }
-
+function showUah() {
+  for (const i of warningUah) {
+    i.classList.remove("hidden");
+  }
+}
+function closeUah() {
+  for (const i of warningUah) {
+    i.classList.add("hidden");
+  }
+}
 function showCalc() {
   showCount();
   cart.classList.add("hidden");
@@ -174,9 +193,9 @@ function showForm() {
           Стеклопакет - ${fromFile[i].paket},Фурнитура - ${fromFile[i].fittings},<br> </span>
           <span class="table-text">Ламинация - ${fromFile[i].lam}, 
           Стекло - ${fromFile[i].glass},<br> Ручка - ${fromFile[i].cab}</span><br><br>
-          Дополнительная комплектация: ${currExt}<br>
+          Дополнительная комплектация: ${currExt}<br><br>
           Количество: ${fromFile[i].multiply}<br><br>
-          <div class="table-price">823312 грн</div>
+          <div class="table-price">823312 ₴</div>
         </div>
       </td>
     </tr>
@@ -188,13 +207,20 @@ function showForm() {
 }
 function addingToCart() {
   let extendsW = {
-    lock: false,
-    windowsill: false,
-    lowTide: false,
-    net: false,
-    slopes: false,
+    Замок: false,
+    Подоконник: false,
+    Отлив: false,
+    Сетка: false,
+    Откос: false,
   };
   messageToCart();
+  function zeroSpace(num) {
+    num = num.split("");
+    let index = num.indexOf(" ");
+    num.splice(index, 1);
+    return num.join("");
+  }
+
   products.glass = choiceGlass.firstChild.innerText;
   products.lam = choiceLam.firstChild.innerText;
   products.type = currentWindow;
@@ -205,6 +231,7 @@ function addingToCart() {
   products.paket = selects[1].value;
   products.fittings = selects[2].value;
   products.multiply = 1;
+  products.count = zeroSpace(totalBlock.innerText);
   for (const i of extendItems) {
     if (i.classList.contains("extend-item--active")) {
       extendsW[i.attributes[0].value] = true;
@@ -232,6 +259,7 @@ function showCart() {
     }
   }
   let fromFile = userData.products;
+  let totalCartCount = 0;
   for (let i = 0; i < fromFile.length; i++) {
     let currLam;
     let currGlass;
@@ -284,12 +312,18 @@ function showCart() {
       </td>
       <td>
         <div class="table-cell-wrap">
-          <h2 class="table-title">${nameType}, ${fromFile[i].height}х${fromFile[i].width}</h2>
+          <h2 class="table-title">${nameType}, ${fromFile[i].height}х${
+      fromFile[i].width
+    }</h2>
           <span class="table-text">Профиль - ${fromFile[i].profile}, 
-          Стеклопакет - ${fromFile[i].paket},Фурнитура - ${fromFile[i].fittings},<br> </span>
+          Стеклопакет - ${fromFile[i].paket},Фурнитура - ${
+      fromFile[i].fittings
+    },<br> </span>
           <span class="table-text">Ламинация - ${fromFile[i].lam}, 
           Стекло - ${fromFile[i].glass},<br> Ручка - ${fromFile[i].cab}</span>
-          <div class="table-price">123312 грн</div>
+          <div data-id="${i}" class="table-price">${
+      +fromFile[i].count * fromFile[i].multiply
+    } ₴</div>
         </div>
       </td>
       <td> 
@@ -319,8 +353,24 @@ function showCart() {
     `;
 
     tableBody.innerHTML += tableItem;
+    totalCartCount += fromFile[i].count * fromFile[i].multiply;
   }
-  const multiplierCount = document.querySelectorAll(".multiplier-count");
+  function refreshCount() {
+    let totalCartCount = 0;
+    for (let i = 0; i < fromFile.length; i++) {
+      totalCartCount += fromFile[i].count * fromFile[i].multiply;
+    }
+    return totalCartCount;
+  }
+  function prettify(num) {
+    var n = num.toString();
+    n = n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ");
+    return n;
+  }
+  resultPrice.innerText = prettify(totalCartCount);
+  if (resultPrice.innerText === "0") {
+    showCalc();
+  }
   const removeItem = document.querySelectorAll(".remove-item");
   const buttonMultiply = document.querySelectorAll(".button-table-multiply");
   for (const i of buttonMultiply) {
@@ -329,17 +379,33 @@ function showCart() {
   for (const i of removeItem) {
     i.addEventListener("click", removedItem);
   }
+  let newCount;
   function changeMultiply() {
+    newCount = this.parentNode.parentNode.parentNode.children[1]
+      .firstElementChild.children[
+      this.parentNode.parentNode.parentNode.children[1].firstElementChild
+        .children.length - 1
+    ];
     if (this.attributes[2].value === "decrease") {
-      fromFile[this.attributes[1].value].multiply--;
+      if (fromFile[this.attributes[1].value].multiply <= 1) {
+        preventDefault();
+      } else {
+        fromFile[this.attributes[1].value].multiply--;
+        newCount.innerText =
+          fromFile[newCount.attributes[0].value].multiply *
+            fromFile[newCount.attributes[0].value].count +
+          " ₴";
+        resultPrice.innerText = prettify(refreshCount());
+      }
     } else if (this.attributes[2].value === "increase") {
       fromFile[this.attributes[1].value].multiply++;
-    }
-    if (fromFile[this.attributes[1].value].multiply < 1) {
-      fromFile.splice(this.attributes[1].value, 1);
+      newCount.innerText =
+        fromFile[newCount.attributes[0].value].multiply *
+          fromFile[newCount.attributes[0].value].count +
+        " ₴";
+      resultPrice.innerText = prettify(refreshCount());
     }
     localStorage.setItem("UserData", JSON.stringify(userData));
-    showCart();
     this.parentNode.children[1].innerText =
       fromFile[this.attributes[1].value].multiply;
   }
@@ -615,11 +681,18 @@ function showSum() {
     countFur +
     countStyle +
     "";
+
+  totalCount = Math.round(totalCount);
   function prettify(num) {
     var n = num.toString();
-    return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ");
+    n = n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ");
+    return n;
   }
   totalBlock.innerText = prettify(totalCount);
+}
+function removeOption() {
+  this.options[0].remove();
+  this.removeEventListener("change", removeOption);
 }
 function checkSelect() {
   if (selects[0].value && selects[1].value && selects[2].value) {
