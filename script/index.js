@@ -27,12 +27,13 @@ const widthInp = document.querySelector("#widthInp");
 const heightInp = document.querySelector("#heightInp");
 const frameGlassWrap = document.querySelector(".frame-glass-wrap");
 const infoWrap = document.querySelector(".info-wrap");
-const orderButton = document.querySelector(".order-button");
+const orderButton = document.querySelectorAll(".order-button");
 const contentWrap = document.querySelector(".content-wrap");
 const addCart = document.querySelector(".add-pos-dis");
+const addCartSm = document.querySelector(".add-pos-dis-sm");
 const messageAdd = document.querySelector("#messageAdd");
 const cart = document.querySelector("#cart");
-const cartCount = document.querySelector(".cart-count");
+const cartCount = document.querySelectorAll(".cart-count");
 const backCal = document.querySelector("#back-cal");
 const preMessage = document.querySelector(".pre-message");
 const resultPrice = document.querySelector(".result-price");
@@ -60,9 +61,11 @@ if (localStorage.getItem("UserData")) {
   };
 }
 function showCount() {
-  userData.products.length === 0
-    ? (cartCount.innerText = "")
-    : (cartCount.innerText = userData.products.length);
+  for (const i of cartCount) {
+    userData.products.length === 0
+      ? (i.innerText = "")
+      : (i.innerText = userData.products.length);
+  }
 }
 showCount();
 var currentOrder = [];
@@ -104,13 +107,14 @@ for (const i of choiceOpt) {
   i.children[0].addEventListener("click", showSum);
   i.children[2].addEventListener("click", showSum);
 }
-orderButton.addEventListener("click", showCart);
+for (const i of orderButton) {
+  i.addEventListener("click", showCart);
+}
 for (const i of extendItems) {
   i.addEventListener("click", choiceExtend);
   i.addEventListener("click", showSum);
 }
 backCal.addEventListener("click", showCalc);
-document.addEventListener("scroll", fixedBlock);
 function sendRequest(url) {
   return fetch(url)
     .then((response) => {
@@ -195,7 +199,7 @@ function showForm() {
           Стекло - ${fromFile[i].glass},<br> Ручка - ${fromFile[i].cab}</span><br><br>
           Дополнительная комплектация: ${currExt}<br><br>
           Количество: ${fromFile[i].multiply}<br><br>
-          <div class="table-price">823312 ₴</div>
+          <div class="table-price">${fromFile[i].count} ₴</div>
         </div>
       </td>
     </tr>
@@ -306,7 +310,7 @@ function showCart() {
     <tr>
       <td>
         <div class="window-frame animation--active table-window-frame" style="background-image: url('${currLam}">
-          <div class="window-glass table-window-glass ${classGlass}" style="background-image: url('${currGlass}"></div>
+          <div class=" table-window-glass ${classGlass}" style="background-image: url('${currGlass}"></div>
         </div>
       
       </td>
@@ -349,6 +353,7 @@ function showCart() {
           <img class="table-image" src="./images/trash.svg" alt="">
         </button>
       </td>
+      <td class="table-trash"></td>
     </tr>
     `;
 
@@ -425,20 +430,15 @@ function messageToCart() {
   </div>`)
     : messageAdd.classList.remove("hidden");
   products = {};
+  body.setAttribute("style", "height:100vh; overflow:hidden");
   overlay.classList.remove("hidden");
   setTimeout(() => messageAdd.classList.add("hidden"), 2000);
+  setTimeout(
+    () => body.setAttribute("style", "height:auto; overflow:auto"),
+    2000
+  );
   setTimeout(() => overlay.classList.add("hidden"), 2000);
-}
-function fixedBlock() {
-  if (document.documentElement.getBoundingClientRect().top < -400) {
-    frameGlassWrap.classList.add("frame-glass-wrap-fixed");
-    infoWrap.setAttribute("style", "margin-top:420px");
-    blockFrame.classList.add("window-frame-fixed");
-  } else {
-    frameGlassWrap.classList.remove("frame-glass-wrap-fixed");
-    infoWrap.setAttribute("style", "margin-top:24px");
-    blockFrame.classList.remove("window-frame-fixed");
-  }
+  window.scrollTo(0, 0);
 }
 function setParam() {
   curWid.textContent = widthInp.value + " мм";
@@ -446,8 +446,11 @@ function setParam() {
   if (inputs[0].value && inputs[1].value) {
     addCart.addEventListener("click", addingToCart);
     addCart.classList.add("add-pos-act");
+    addCartSm.addEventListener("click", addingToCart);
+    addCartSm.classList.add("add-pos-act");
   } else {
     addCart.removeEventListener("click", addingToCart);
+    addCartSm.removeEventListener("click", addingToCart);
   }
 }
 function showPlace() {
