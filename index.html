@@ -39,7 +39,7 @@
                   loading="lazy"
                 />
               </a>
-              <div class="small-toggle">
+              <!-- <div class="small-toggle hidden">
                 <div id="toggles">
                   <input
                     type="checkbox"
@@ -56,7 +56,7 @@
                     data-on=""
                   ></label>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-sm-12 col-md-3">
@@ -92,7 +92,7 @@
             </select>
           </div>
           <div class="col-sm-0 col-md-1">
-            <button class="order-button">
+            <button id="big-order-button" class="order-button">
               <span class="cart-count"></span>
               <img
                 class="cart-image"
@@ -114,7 +114,7 @@
         <div class="row choice-window-block hidden">
           <div class="col-xl-2 col-lg-12">
             <div class="window-wrap">
-              <div class="big-toggle">
+              <div class="big-toggle hidden">
                 <div id="toggles">
                   <input
                     type="checkbox"
@@ -414,22 +414,45 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-12 bottom-block">
-                    <div class="result-wrap">
-                      <span>Текущая стоимость:</span>
-                      <span class="text-result" id="result">10000</span>
-                      <div class="uah-wrap">
-                        <span id="uah" class="result-text result-text-uah">
-                          ₴</span
-                        >
-                        <div class="warning-block-uah hidden">
-                          Украинская гривна
+                  <div class="bottom-block">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                      <div class="result-wrap">
+                        <span>Текущая стоимость:</span>
+                        <span class="text-result" id="result">10000</span>
+                        <div class="uah-wrap">
+                          <span id="uah" class="result-text result-text-uah">
+                            ₴</span
+                          >
+                          <div class="warning-block-uah hidden">
+                            Украинская гривна
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div data-mode="4" class="add-pos-dis">
+                    <div data-mode="4" class="col-lg-3 col-md-12 col-sm-0">
+                      <div class="add-pos-dis-sm">
+                        <span class="add-simbol">+</span>
+                        <span class="add-simbol">В корзину</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cart-result-wrap col-xs-6">
+                    <div data-mode="4" class="add-pos-dis col-xs-6">
                       <span class="add-simbol">+</span>
-                      <span class="add-simbol">Добавить</span>
+                      <span class="add-simbol">В корзину</span>
+                    </div>
+                    <div class="col-xs-6 button-wrap">
+                      <button id="small-order-button" class="order-button">
+                        <span class="cart-count"></span>
+                        <img
+                          class="cart-image"
+                          src="./images/cart.svg"
+                          alt="Корзина"
+                          loading="lazy"
+                        />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -506,7 +529,9 @@
               class=""
               rows="1000"
             ></textarea>
-            <button class="submit-button" type="submit">заказать</button>
+            <button id="final-button" class="submit-button" type="submit">
+              заказать
+            </button>
           </form>
         </div>
         <div class="resul-wrap">
