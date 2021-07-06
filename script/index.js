@@ -308,11 +308,11 @@ function showCart() {
     }
     let tableItem = `
     <tr>
-      <td>
+      <td class="col-wrap">
+      <button data-id="${i}" class="change-button"><img class="change-image" src="./images/change-icon.svg" alt=""></button>
         <div class="window-frame animation--active table-window-frame" style="background-image: url('${currLam}">
           <div class=" table-window-glass ${classGlass}" style="background-image: url('${currGlass}"></div>
         </div>
-      
       </td>
       <td>
         <div class="table-cell-wrap">
@@ -349,7 +349,7 @@ function showCart() {
           </button>
       </div></td>
       <td>
-        <button class="button-table-trash remove-item" data-id="${i}">
+        <button data-id="${i}" class="button-table-trash remove-item">
           <img class="table-image" src="./images/trash.svg" alt="">
         </button>
       </td>
@@ -376,13 +376,119 @@ function showCart() {
   if (resultPrice.innerText === "0") {
     showCalc();
   }
+  const changeButton = document.querySelectorAll(".change-button");
   const removeItem = document.querySelectorAll(".remove-item");
   const buttonMultiply = document.querySelectorAll(".button-table-multiply");
   for (const i of buttonMultiply) {
     i.addEventListener("click", changeMultiply);
   }
+  for (const i of changeButton) {
+    i.addEventListener("click", changeItem);
+  }
   for (const i of removeItem) {
     i.addEventListener("click", removedItem);
+  }
+  function changeItem() {
+    let changeData = JSON.parse(localStorage.getItem("UserData"));
+    let changeDataItem = changeData.products[this.attributes[0].value];
+    fromFile.splice(this.attributes[0].value, 1);
+    localStorage.setItem("UserData", JSON.stringify(userData));
+    currentWindow = changeDataItem.type;
+    showCalc();
+    showOther();
+    addCart.addEventListener("click", addingToCart);
+    addCart.classList.add("add-pos-act");
+    addCartSm.addEventListener("click", addingToCart);
+    addCartSm.classList.add("add-pos-act");
+    switch (changeDataItem.type) {
+      case 1:
+        blockGlass.className = "window-glass";
+        blockFrame.className = "window-frame";
+        nameType.innerText = "Одностворчатое";
+        refreshData(1);
+        break;
+      case 2:
+        blockGlass.className = "window-glass-double";
+        blockFrame.className = "window-frame";
+        nameType.innerText = "Двухстворчатое";
+        refreshData(2);
+        break;
+      case 3:
+        blockGlass.className = "window-glass-triple";
+        blockFrame.className = "window-frame";
+        nameType.innerText = "Трехстворчатое";
+        refreshData(3);
+        break;
+      case 4:
+        blockGlass.className = "window-glass-quad";
+        blockFrame.className = "window-frame";
+        nameType.innerText = "Четырехстворчатое";
+        refreshData(4);
+        break;
+      case 5:
+        blockGlass.className = "window-glass";
+        blockFrame.className = "window-frame";
+        nameType.innerText = "Балконная дверь";
+        refreshData(5);
+        break;
+
+      default:
+        blockGlass.className = "window-glass";
+        nameType.innerText = "Одностворчатое";
+        refreshData(1);
+        break;
+    }
+    for (const i of selectType) {
+      i.classList.remove("window--active");
+      if (
+        i.firstElementChild.attributes[0].value.length <
+        i.firstElementChild.attributes[1].value.length
+      ) {
+        [
+          i.firstElementChild.attributes[0].value,
+          i.firstElementChild.attributes[1].value,
+        ] = [
+          i.firstElementChild.attributes[1].value,
+          i.firstElementChild.attributes[0].value,
+        ];
+      }
+    }
+    [
+      selectType[changeDataItem.type - 1].firstElementChild.attributes[1].value,
+      selectType[changeDataItem.type - 1].firstElementChild.attributes[0].value,
+    ] = [
+      selectType[changeDataItem.type - 1].firstElementChild.attributes[0].value,
+      selectType[changeDataItem.type - 1].firstElementChild.attributes[1].value,
+    ];
+    selectType[changeDataItem.type - 1].classList.add("window--active");
+    selects[0].value = changeDataItem.profile;
+    selects[1].value = changeDataItem.paket;
+    selects[2].value = changeDataItem.fittings;
+    inputs[0].value = changeDataItem.width;
+    inputs[1].value = changeDataItem.height;
+    curWid.textContent = widthInp.value + " мм";
+    curHei.textContent = heightInp.value + " мм";
+    choiceLam.firstChild.innerText = changeDataItem.lam;
+    choiceGlass.firstChild.innerText = changeDataItem.glass;
+    choiceCab.innerHTML = `<span class="choice-text">${changeDataItem.cab}</span>`;
+    for (let i = 0; i < dataArray[0].length; i++) {
+      if (dataArray[0][i].title === changeDataItem.glass) {
+        blockGlass.setAttribute(
+          "style",
+          `background-image: url('${dataArray[0][i].image}')`
+        );
+      }
+    }
+    console.log(changeDataItem);
+    for (let i = 0; i < dataArray[changeDataItem.type].length; i++) {
+      if (dataArray[changeDataItem.type][i].title === changeDataItem.lam) {
+        blockFrame.setAttribute(
+          "style",
+          `background-image: url('${dataArray[changeDataItem.type][i].image}');`
+        );
+      }
+    }
+    showSum();
   }
   let newCount;
   function changeMultiply() {
@@ -415,7 +521,7 @@ function showCart() {
       fromFile[this.attributes[1].value].multiply;
   }
   function removedItem() {
-    fromFile.splice(this.attributes[1].value, 1);
+    fromFile.splice(this.attributes[0].value, 1);
     localStorage.setItem("UserData", JSON.stringify(userData));
     showCart();
   }
@@ -699,9 +805,12 @@ function removeOption() {
 }
 function checkSelect() {
   if (selects[0].value && selects[1].value && selects[2].value) {
-    mainBlock.classList.remove("hidden");
-    preMessage.classList.add("hidden");
+    showOther();
   }
+}
+function showOther() {
+  mainBlock.classList.remove("hidden");
+  preMessage.classList.add("hidden");
 }
 function checkMax() {
   showSum();
@@ -967,6 +1076,7 @@ function changeOptions() {
       } else {
         let curElem;
         for (let i = 0; i < dataArray[6].length; i++) {
+          console.log(this.parentNode.children[1].firstElementChild);
           if (
             dataArray[6][i].title ===
             this.parentNode.children[1].firstElementChild.innerText
