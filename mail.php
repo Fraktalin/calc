@@ -14,14 +14,14 @@ $comment = $_POST['user_comment'];
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';  																							// Specify main and backup SMTP servers
+$mail->Host = 'smtp.stekomail.com.ua';  																							// Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'calc-sender@stekomail.com.ua'; // Ваш логин от почты с которой будут отправляться письма
 $mail->Password = 'PJ225bjg3G'; // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
+$mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
-$mail->setFrom('StekoCorp@gmail.com'); // от кого будет уходить письмо?
+$mail->setFrom('calc-sender@stekomail.com.ua'); // от кого будет уходить письмо?
 $mail->addAddress('ijdrjgkzcdima@gmail.com');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
