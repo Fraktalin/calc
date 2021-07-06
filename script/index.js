@@ -466,8 +466,8 @@ function showCart() {
     selects[2].value = changeDataItem.fittings;
     inputs[0].value = changeDataItem.width;
     inputs[1].value = changeDataItem.height;
-    curWid.textContent = widthInp.value + " мм";
-    curHei.textContent = heightInp.value + " мм";
+    curWid.textContent = widthInp.value + " см";
+    curHei.textContent = heightInp.value + " см";
     choiceLam.firstChild.innerText = changeDataItem.lam;
     choiceGlass.firstChild.innerText = changeDataItem.glass;
     choiceCab.innerHTML = `<span class="choice-text">${changeDataItem.cab}</span>`;
@@ -547,8 +547,8 @@ function messageToCart() {
   window.scrollTo(0, 0);
 }
 function setParam() {
-  curWid.textContent = widthInp.value + " мм";
-  curHei.textContent = heightInp.value + " мм";
+  curWid.textContent = widthInp.value + " см";
+  curHei.textContent = heightInp.value + " см";
   if (inputs[0].value && inputs[1].value) {
     addCart.addEventListener("click", addingToCart);
     addCart.classList.add("add-pos-act");
@@ -565,9 +565,9 @@ function showPlace() {
 function closeMessage() {
   warning.classList.add("hidden");
   if (currentWindow === 5) {
-    warning.innerText = `Внимание! Значение высоты и ширины ограничены Ширина от 500, мм до 950, мм Высота от 500, мм до 2250, мм`;
+    warning.innerText = `Внимание! Значение высоты и ширины ограничены Ширина от 500, см до 950, см Высота от 500, см до 2250, см`;
   } else {
-    warning.innerText = `Внимание! Значение высоты и ширины ограничены Ширина от 500, мм до 2700, мм Высота от 500, мм до 1600, мм`;
+    warning.innerText = `Внимание! Значение высоты и ширины ограничены Ширина от 500, см до 2700, см Высота от 500, см до 1600, см`;
   }
 }
 function showMessage() {
