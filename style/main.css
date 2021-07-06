@@ -151,6 +151,7 @@ select {
   height: 80px;
   opacity: 0.5;
   margin-top: 0;
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.5));
 }
 .window:last-of-type {
   filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.5));
@@ -230,7 +231,7 @@ select {
 }
 .window--active {
   animation: fade 0.5s linear;
-  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.5));
   opacity: 1;
 }
 .window-glass {
@@ -239,8 +240,8 @@ select {
   margin: 0 auto;
   z-index: -1;
   margin-top: 20px;
-  width: 214px;
-  height: 452px;
+  width: 210px;
+  height: 432px;
   transform: translate(83%, 13%);
 }
 .window-glass-double {
@@ -249,7 +250,7 @@ select {
   margin: 0 auto;
   z-index: -1;
   margin-top: 20px;
-  width: 390px;
+  width: 396px;
   height: 420px;
   transform: translate(20%, 10%);
 }
@@ -279,9 +280,9 @@ select {
   background-position: center center;
   margin: 0 auto;
   z-index: -1;
-  width: 70px;
-  height: 144px;
-  transform: translate(80%, 13%);
+  width: 68px;
+  height: 142px;
+  transform: translate(85%, 14%);
 }
 .table-window-glass-double {
   position: absolute;
@@ -400,11 +401,12 @@ select {
   box-shadow: 0px 4px 16px rgba(255, 255, 255, 0.25);
 }
 .table-price {
+  white-space: nowrap;
   text-align: right;
   width: 31%;
   position: absolute;
   bottom: -1%;
-  right: -0%;
+  right: 2%;
   font-weight: bold;
   font-size: 24px;
   line-height: 32px;
@@ -446,6 +448,7 @@ select {
   color: #000;
   background: #fff;
   padding: 22px 32px;
+  margin-right: 24px;
 }
 .result-text {
   font-size: 18px;
@@ -459,13 +462,12 @@ select {
   line-height: 32px;
 }
 .resul-wrap {
+  margin-left: auto;
   padding-top: 40px;
   padding-bottom: 40px;
-  margin-left: calc(100% / 4);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  width: 65%;
 }
 .footer-text {
   padding-top: 16px;
@@ -499,6 +501,7 @@ table tr > * {
 tbody td {
   border: 2px solid white;
   padding: 16px;
+  height: 300px;
 }
 .table-cell-wrap {
   position: relative;
@@ -714,7 +717,6 @@ i {
   display: inline-block;
   padding: 3px;
 }
-
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -882,6 +884,7 @@ i {
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: nowrap;
   background: white;
   color: #000;
@@ -1040,6 +1043,20 @@ i {
 #small-order-button {
   display: none;
 }
+
+.change-button {
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.change-image {
+  width: 24px;
+}
+.col-wrap {
+  position: relative;
+}
 @media screen and (max-width: 1400px) {
   .result-wrap {
     width: 240px;
@@ -1109,7 +1126,11 @@ i {
   }
   .table-price {
     width: 31%;
-    right: -4%;
+    right: 5%;
+  }
+
+  tbody td {
+    height: 330px;
   }
 }
 
@@ -1118,6 +1139,10 @@ i {
     font-size: 24px;
     width: 90%;
     height: auto;
+  }
+
+  tbody td {
+    height: 350px;
   }
   .pre-message-title {
     margin-top: 64px;
@@ -1200,7 +1225,6 @@ i {
   .button-wrap {
     width: 100%;
   }
-
   .resul-wrap {
     margin-left: 0;
     width: auto;
@@ -1217,7 +1241,10 @@ i {
 @media screen and (max-width: 576px) {
   .table-price {
     width: 31%;
-    right: 0%;
+    right: 2%;
+  }
+  tbody td {
+    height: auto;
   }
   .main-form {
     background: #000;
@@ -1248,8 +1275,9 @@ i {
     flex-wrap: wrap;
   }
   .table-window-glass {
-    width: 114px;
-    height: 244px;
+    width: 108px;
+    height: 226px;
+    transform: translate(90%, 16%);
   }
   .table-window-glass-double {
     width: 231px;
@@ -1264,10 +1292,14 @@ i {
   .table-desc {
     width: 100%;
   }
-
+  .resul-wrap {
+    justify-content: space-between;
+    width: 90%;
+  }
   .table-window-glass-quad {
     width: 225px;
     height: 222px;
+    transform: translate(18%, 19%);
   }
   table tr > * {
     display: block;
@@ -1331,6 +1363,10 @@ i {
   .window {
     width: 52px;
     height: 64px;
+  }
+
+  .total-result-wrap {
+    margin-right: 0px;
   }
 }
 @media screen and (max-width: 400px) {
