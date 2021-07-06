@@ -1277,11 +1277,11 @@ i {
   .table-window-glass {
     width: 108px;
     height: 226px;
-    transform: translate(90%, 16%);
   }
   .table-window-glass-double {
     width: 231px;
     height: 229px;
+    transform: translate(17%, 16%);
   }
   .table-window-glass-triple {
     width: 249px;
@@ -1314,7 +1314,8 @@ i {
   }
   .window-glass-triple {
     width: 250px;
-    height: 167px;
+    height: 174px;
+    transform: translate(10%, 33%);
   }
   .window-glass-quad {
     width: 219px;
@@ -1341,7 +1342,7 @@ i {
   }
   .window-glass-double {
     width: 222px;
-    height: 230px;
+    height: 227px;
   }
   .table-product,
   .table-desc,
