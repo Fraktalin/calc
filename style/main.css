@@ -410,6 +410,7 @@ select {
   font-weight: bold;
   font-size: 24px;
   line-height: 32px;
+  display: none;
 }
 .cart-wrap {
   height: 96vh;
@@ -449,6 +450,7 @@ select {
   background: #fff;
   padding: 22px 32px;
   margin-right: 24px;
+  display: none;
 }
 .result-text {
   font-size: 18px;
@@ -898,6 +900,7 @@ i {
   margin-bottom: 0px;
   text-align: center;
   white-space: nowrap;
+  display: none;
 }
 .cart-result-wrap {
   align-items: center;
