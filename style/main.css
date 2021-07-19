@@ -1386,7 +1386,7 @@ i {
     width: 100%;
   }
   .frame-glass-wrap {
-    margin-left: 0px;
+    margin-left: 40px;
   }
   .border-right {
     right: -24px;
@@ -1399,5 +1399,16 @@ i {
   .window {
     width: 48px;
     height: 64px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .frame-glass-wrap {
+    margin-left: 24px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .frame-glass-wrap {
+    margin-left: -8px;
   }
 }

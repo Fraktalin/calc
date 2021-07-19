@@ -22,7 +22,7 @@ $mail->SMTPSecure = 'TLS';                            // Enable TLS encryption, 
 $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('calc-sender@stekomail.com.ua'); // от кого будет уходить письмо?
-$mail->addAddress('internet.m.steko@gmail.com');     // Кому будет уходить письмо 
+$mail->addAddress('dp@stekomail.com.ua');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -31,8 +31,8 @@ $mail->addAddress('internet.m.steko@gmail.com');     // Кому будет ух
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Заявка с Калькулятора';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта пользователя: ' .$email. '<br> Город проживания: '.$city.'<br>'.'Комментарий: '.$comment.' '.$table;
+$mail->Subject = 'Заявка Онлайн';
+$mail->Body    = 'Имя: ' .$name . '<br>Телефон: ' .$phone. '<br>Почта: ' .$email. '<br>Город: '.$city.'<br>Комментарий: '.$comment.' '.$table;
 $mail->AltBody = '';
 
 if(!$mail->send()) {

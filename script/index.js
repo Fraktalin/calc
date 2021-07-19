@@ -98,7 +98,6 @@ for (const i of uah) {
   i.addEventListener("mouseover", showUah);
   i.addEventListener("mouseout", closeUah);
 }
-console.log(uah);
 infoCart.addEventListener("mouseover", showCartMessage);
 infoCart.addEventListener("mouseout", closeCartMessage);
 for (const i of choiceOpt) {
@@ -199,7 +198,7 @@ function showForm() {
           Стекло - ${fromFile[i].glass},<br> Ручка - ${fromFile[i].cab}</span><br><br>
           Дополнительная комплектация: ${currExt}<br><br>
           Количество: ${fromFile[i].multiply}<br><br>
-          <div class="table-price">${fromFile[i].count} ₴</div>
+          <!--  <div class="table-price">${fromFile[i].count} ₴</div> -->
         </div>
       </td>
     </tr>
